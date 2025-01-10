@@ -76,3 +76,36 @@ print(it_companies)
 print(it_companies[0:3])
 
 print(it_companies[-1:-2])
+
+if(int(len(it_companies) % 2) == 0 ):
+    l=int(len(it_companies))
+    print(it_companies[l/2])
+else:
+    l=int(len(it_companies)/2)
+    print(it_companies[l] ,it_companies[l+1])
+
+it_companies.pop(0)
+
+
+if(int(len(it_companies) % 2) == 0 ):
+    l=int(len(it_companies))
+    # print(it_companies[l/2])
+    # it_companies.pop(l)
+else:
+    l=int(len(it_companies)/2)
+    # print(it_companies[l] ,it_companies[l+1])
+    # it_companies.pop(l)
+    # it_companies.pop(l+1)
+
+it_companies.pop(-1)
+
+it_companies.clear()
+
+del it_companies
+
+front_end = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+back_end = ['Node','Express', 'MongoDB']
+full_stack= front_end+back_end
+full_stack.insert(9,'Python')
+full_stack.insert(10,'Sql')
+print(full_stack)
