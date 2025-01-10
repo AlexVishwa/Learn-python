@@ -54,10 +54,25 @@ if(it_companies[2]=='IBM'):
 else:
     print(it_companies[2].upper())
 
-for company in length_of_list:
-    i=0
-    it_companies[i]=company+'#;'
-    i=i+1
+# for company in length_of_list:
+    # i=0
+    # it_companies[i]=company+'#;'
+    # i=i+1
 
-for company in it_companies:
-    print(company)
+# for company in it_companies:
+    # print(company)
+
+# if(it_companies.find('infosys')):
+    # print(it_companies.find('infosys'))
+# else:
+    # print('Not found')
+# print(sorted(it_companies))
+it_companies.sort()
+print(it_companies)
+
+it_companies.reverse()
+print(it_companies)
+
+print(it_companies[0:3])
+
+print(it_companies[-1:-2])
