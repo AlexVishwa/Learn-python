@@ -82,7 +82,7 @@ str='I am enjoying this challenge.\nI just wonder what is next.'
 print(str)
 
 fields=['Name','Age','Class','Designation']
-values=['Alex','25','6','CEO']
+values=['Alex','25','6','Indep']
 print(f'{fields[0]}\t{fields[1]}\t{fields[2]}\t{fields[3]}')
 print(f'{values[0]}\t{values[1]}\t{values[2]}\t{values[3]}')
 
@@ -91,3 +91,13 @@ Area= 3.14*(radius**2)
 print(f'Radius = {radius}')
 print(f'Area = 3.14 * 2 ** {radius}')
 print(f'The area of a circle with radius {radius} is {Area} meters square.')
+
+a=8
+b=6
+print(f'{a}+{b}={a+b}')
+print(f'{a}-{b}={a-b}')
+print(f'{a}*{b}={a*b}')
+print(f'{a}/{b}={a/b}')
+print(f'{a}//{b}={a//b}')
+print(f'{a}%{b}={a%b}')
+print(f'{a}**{b}={a**b}')
