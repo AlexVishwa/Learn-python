@@ -1,3 +1,8 @@
+# from ../data/countries import countries
+import sys
+sys.path.append('../data')
+# import countries_data
+print(countries)
 countries = [
   'Afghanistan',
   'Albania',
