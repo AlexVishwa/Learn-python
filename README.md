@@ -3730,3 +3730,7 @@ print(len(langlist))
 # 112
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/level1.py) -->
+
+<!-- MARKDOWN-AUTO-DOCS:END -->
