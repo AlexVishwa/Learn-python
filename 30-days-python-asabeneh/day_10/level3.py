@@ -4,10 +4,10 @@
 # import countries_data
 # print(countries)
     
-    class day10:
-        def __init__():
-            sum=0
-            countries = [
+class day10:
+    def __init__():
+        sum=0
+        countries = [
     'Afghanistan',
     'Albania',
     'Algeria',
@@ -202,9 +202,6 @@
     'Zambia',
     'Zimbabwe',
     ]
-    class day10:
-        def __init__():
-            sum=0
     for country in countries:
         if(country.find('land')!=-1):
             print(country)

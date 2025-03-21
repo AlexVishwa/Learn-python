@@ -1,3 +1,15 @@
+class bsort:
+    def __init__(self,arr):
+        self.arr=arr
+    def sort(self):
+        for n in range(len(self.arr)-1,0,-1):
+            for i in range(n):
+                if(self.arr[i]>self.arr[i+1]):
+                    temp=self.arr[i+1]
+                    self.arr[i+1]=self.arr[i]
+                    self.arr[i]=temp
+        return self.arr
+
 ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 
 def bsort(arr):
