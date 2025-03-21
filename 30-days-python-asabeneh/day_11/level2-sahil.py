@@ -16,34 +16,29 @@ NUMBER_OF_CPUS = 1
 TOTAL_ITERATIONS = 1
 
 
-def factorial(num):
-    p = 1
-    for i in range(1, num + 1):
-        p *= i
-    return p
+def taylor_nth_term(f, a, n, x):
+    """Computes the nth term of the Taylor series of f(x) at x = a."""
+    derivative_n = f(a, n)  # Compute nth derivative at a
+    term = (derivative_n / math.factorial(n)) * (x - a) ** n
+    return term
 
 
-def talor_expansion(start, end, radians):
-    result = 0
-    for i in range(start, end, 4):  # even terms (+)
-        result += (radians**i) / factorial(i)
-    for j in range(start + 2, end, 4):  # odd terms (-)
-        result -= (radians**j) / factorial(j)
-    print("result?", result)
-    return result
+# Example function: cos(x)
+def cos_derivative(a, n):
+    """Returns the nth derivative of cos(x) evaluated at x = a."""
+    derivatives = [math.cos, math.sin, lambda x: -math.cos(x), lambda x: -math.sin(x)]
+    return derivatives[n % 4](a)
+
+
+# Compute the 4th term of the Taylor series for cos(x) at x = 0
+n = 4
+a = 0  # Maclaurin series
+x = 0.5
+nth_term = taylor_nth_term(cos_derivative, a, n, x)
+print(f"The {n}th term of the Taylor series for cos(x) at x={x} is: {nth_term}")
 
 
 def main(radians):
-    iterations_per_cpu = TOTAL_ITERATIONS // NUMBER_OF_CPUS
-    pool = mp.Pool(processes=NUMBER_OF_CPUS)
-
-    results = [
-        pool.apply_async(talor_expansion, args=(i, i + iterations_per_cpu, radians))
-        for i in range(0, TOTAL_ITERATIONS, iterations_per_cpu)
-    ]
-    pool.close()
-    pool.join()
-
     return 1 + sum(result.get() for result in results)
 
 
@@ -51,7 +46,9 @@ def main(radians):
 # module). If true, the code block under this condition will execute.
 if __name__ == "__main__":
     print("iterations?", TOTAL_ITERATIONS)
-    radians = math.radians(45)  # 0.7853981633974483
+    radians = math.radians(180)  # 0.7853981633974483
+    print("radians?", radians)
+    # radians = 1
     print("main?", main(radians))
     # Output:
     # 1056.2538455391366
