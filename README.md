@@ -1,32 +1,5 @@
 _See older readme: [Click here](./README.old.md) (README.old.md)_
 
-## What is `error`, `exception` and `exception handling` in python. Be concise. (ChatGPT)
-
-Error: An issue in the program's syntax or logic that causes it to fail. Errors can be syntax errors (e.g., SyntaxError) or runtime errors (e.g., NameError, TypeError).
-
-Exception: A type of runtime error that can be caught and handled using try-except blocks. Examples include ValueError, KeyError, and ZeroDivisionError.
-
-*Errors terminate the program if unhandled, while exceptions allow for controlled recovery.*
-
-**What is exception handling?**
-
-Exception handling in Python refers to the process of managing and responding to runtime errors (exceptions) to prevent program crashes. It involves using constructs like `try`, `except`, `else`, and `finally` to handle exceptions gracefully.
-
-Example:
-
-```python
-try:
-    x = 10 / 0  # Potential exception
-except ZeroDivisionError:
-    print("Cannot divide by zero!")  # Handle the exception
-else:
-    print("No exceptions occurred.")  # Executes if no exceptions
-finally:
-    print("Execution complete.")  # Always executes
-```
-
-This ensures the program continues running even when unexpected issues arise.
-
 # 30 Days of Python
 
 Code generate via autodocs
@@ -3834,3 +3807,66 @@ print(func15(10))
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level1.py) -->
 <!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level1.py -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level2.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level2.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level3.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level3.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level1.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_13/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_13/level1.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14+/level1.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level2.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level2.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level3.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14+/level3.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_15/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_15/level1.py -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!--
+Day 15
+## What is `error`, `exception` and `exception handling` in python. Be concise. (ChatGPT)
+
+Error: An issue in the program's syntax or logic that causes it to fail. Errors can be syntax errors (e.g., SyntaxError) or runtime errors (e.g., NameError, TypeError).
+
+Exception: A type of runtime error that can be caught and handled using try-except blocks. Examples include ValueError, KeyError, and ZeroDivisionError.
+
+*Errors terminate the program if unhandled, while exceptions allow for controlled recovery.*
+
+**What is exception handling?**
+
+Exception handling in Python refers to the process of managing and responding to runtime errors (exceptions) to prevent program crashes. It involves using constructs like `try`, `except`, `else`, and `finally` to handle exceptions gracefully.
+
+Example:
+
+```python
+try:
+    x = 10 / 0  # Potential exception
+except ZeroDivisionError:
+    print("Cannot divide by zero!")  # Handle the exception
+else:
+    print("No exceptions occurred.")  # Executes if no exceptions
+finally:
+    print("Execution complete.")  # Always executes
+```
+
+This ensures the program continues running even when unexpected issues arise.
+
+-->
