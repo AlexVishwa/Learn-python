@@ -12,9 +12,40 @@ def readCountriesFromJsonFile():
     return countries_data
 
 
-countries = readCountriesFromJsonFile()
+# countries = readCountriesFromJsonFile()
 # print(countries)
-# countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+
+def q1():
+    print(list(map(lambda x: x.upper(),countries)))
+# q1()
+
+def q2():
+    add=map(lambda x: x**2,numbers)
+    print(list(add))
+# q2()
+
+def q3():
+    print(list(map(lambda x: x.upper(),names)))
+# q3()
+
+def q4():
+    add=filter(lambda x: x.find('land')!=-1,countries)
+    print(list(add))
+# q4()
+
+def q5():
+    add=filter(lambda x: len(x)-1==6,countries)
+    print(list(add))
+# q5()
+
+def q6():
+    add=filter(lambda x: len(x)-1>=6,countries)
+    print(list(add))
+q6()
+
 def q7():
     address=filter(lambda text: text.startswith('E'),countries)
     print(list(address))
@@ -56,13 +87,22 @@ def similiar(c):
 def get_first_ten_countries():
     for i in range(10):
         print(countries[i]['name'])
-get_first_ten_countries()
+# get_first_ten_countries()
 
 def get_last_ten_countries():
     for i in range(-1,-11,-1):
         print(countries[i]['name'])
 # get_last_ten_countries()
+# print(countries)
 
-def generate_dict():
-    dict=[]
+def get_first_letter_count(country_list):
+    dictionary = {}
+    for country in country_list:
+        firstLetterOfCountry = country['name'][0]
+        # & Learn: We use `dictionary.get()` method because if we use dictionary["someBadKey"] then we get exception ---  `KeyError: 'bad_key'`
+        dictionary[firstLetterOfCountry] = dictionary.get(firstLetterOfCountry, 0) + 1
+    return dictionary
+
+
+# print(get_first_letter_count(countries))
     
