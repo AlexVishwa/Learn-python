@@ -3721,7 +3721,6 @@ class day10:
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/level1.py) -->
-<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_11/level1.py -->
 ```py
 def sum(a,b):
     return a+b
@@ -3798,42 +3797,59 @@ print(func15(10))
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/level3.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/taylorexpansion.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level1.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level2.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level3.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level1.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_13/level1.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level1.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level2.py) -->
-
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level3.py) -->
-
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_15/level1.py) -->
+```
 
-<!-- MARKDOWN-AUTO-DOCS:END -->
-
-<!--
+```
 Day 15
 ## What is `error`, `exception` and `exception handling` in python. Be concise. (ChatGPT)
 
@@ -3862,19 +3878,26 @@ finally:
 
 This ensures the program continues running even when unexpected issues arise.
 
--->
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/packing_unpack.py) -->
 
+
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/packing_unpack.py) -->
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/spreading_Enumeration.py) -->
-
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/zip.py) -->
-
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/level.py) -->
-
+```
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
