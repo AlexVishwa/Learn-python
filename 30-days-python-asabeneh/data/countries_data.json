@@ -1,5 +1,5 @@
 [
-    {
+{
         "name": "Afghanistan",
         "capital": "Kabul",
         "languages": [
@@ -431,7 +431,7 @@
     },
     {
         "name": "Cameroon",
-        "capital": "Yaoundé",
+        "capital": "Yaounde",
         "languages": [
             "English",
             "French"
@@ -591,13 +591,13 @@
     },
     {
         "name": "Costa Rica",
-        "capital": "San José",
+        "capital": "San Jose",
         "languages": [
             "Spanish"
         ],
         "population": 4890379,
         "flag": "https://restcountries.eu/data/cri.svg",
-        "currency": "Costa Rican colón"
+        "currency": "Costa Rican colon"
     },
     {
         "name": "Croatia",
@@ -780,7 +780,7 @@
     },
     {
         "name": "Faroe Islands",
-        "capital": "Tórshavn",
+        "capital": "Torshavn",
         "languages": [
             "Faroese"
         ],
@@ -1089,7 +1089,7 @@
         ],
         "population": 334300,
         "flag": "https://restcountries.eu/data/isl.svg",
-        "currency": "Icelandic króna"
+        "currency": "Icelandic krona"
     },
     {
         "name": "India",
@@ -1429,7 +1429,7 @@
     },
     {
         "name": "Maldives",
-        "capital": "Malé",
+        "capital": "Male",
         "languages": [
             "Divehi"
         ],
@@ -1656,7 +1656,7 @@
     },
     {
         "name": "New Caledonia",
-        "capital": "Nouméa",
+        "capital": "Noumea",
         "languages": [
             "French"
         ],
@@ -1669,7 +1669,7 @@
         "capital": "Wellington",
         "languages": [
             "English",
-            "Māori"
+            "Maori"
         ],
         "population": 4697854,
         "flag": "https://restcountries.eu/data/nzl.svg",
@@ -1683,7 +1683,7 @@
         ],
         "population": 6262703,
         "flag": "https://restcountries.eu/data/nic.svg",
-        "currency": "Nicaraguan córdoba"
+        "currency": "Nicaraguan cordoba"
     },
     {
         "name": "Niger",
@@ -1821,7 +1821,7 @@
     },
     {
         "name": "Paraguay",
-        "capital": "Asunción",
+        "capital": "Asuncion",
         "languages": [
             "Spanish",
             "Guaraní"
@@ -1913,7 +1913,7 @@
         "currency": "Euro"
     },
     {
-        "name": "Réunion",
+        "name": "Reunion",
         "capital": "Saint-Denis",
         "languages": [
             "French"
@@ -1955,7 +1955,7 @@
         "currency": "Rwandan franc"
     },
     {
-        "name": "Saint Barthélemy",
+        "name": "Saint Barthelemy",
         "capital": "Gustavia",
         "languages": [
             "French"
@@ -2035,7 +2035,7 @@
         ],
         "population": 194899,
         "flag": "https://restcountries.eu/data/wsm.svg",
-        "currency": "Samoan tālā"
+        "currency": "Samoan"
     },
     {
         "name": "San Marino",
@@ -2049,13 +2049,13 @@
     },
     {
         "name": "Sao Tome and Principe",
-        "capital": "São Tomé",
+        "capital": "São Tome",
         "languages": [
             "Portuguese"
         ],
         "population": 187356,
         "flag": "https://restcountries.eu/data/stp.svg",
-        "currency": "São Tomé and Príncipe dobra"
+        "currency": "Sao Tome and Príncipe dobra"
     },
     {
         "name": "Saudi Arabia",
@@ -2371,7 +2371,7 @@
     },
     {
         "name": "Togo",
-        "capital": "Lomé",
+        "capital": "Lome",
         "languages": [
             "French"
         ],

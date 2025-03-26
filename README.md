@@ -3835,19 +3835,33 @@ print(func15(10))
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_13/level1.py) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
-## File - `30-days-python-asabeneh/day_14+/level1.py`
+## File - `30-days-python-asabeneh/day_14/2.py`
 
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level1.py) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/level1.py) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
-## File - `30-days-python-asabeneh/day_14+/level2.py`
+## File - `30-days-python-asabeneh/day_14/closure.py`
 
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level2.py) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/level2.py) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
-## File - `30-days-python-asabeneh/day_14+/level3.py`
+## File - `30-days-python-asabeneh/day_14/level3.py`
 
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14+/level3.py) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/level3.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_14/filter.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/filter.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_14/decorator.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/decorator.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+## File - `30-days-python-asabeneh/day_14/map,array,f.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/map,array,f.py) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_15/level1.py`
@@ -3881,6 +3895,16 @@ finally:
 
 This ensures the program continues running even when unexpected issues arise.
 
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_16/day_time.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_16/day_time.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_16/level1.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_16/level1.py) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_17/packing_unpacking.py`

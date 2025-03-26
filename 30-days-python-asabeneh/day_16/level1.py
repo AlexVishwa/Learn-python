@@ -1,14 +1,14 @@
 from datetime import datetime,date
 
-# now = datetime.now()
-# print(now)                      # 2021-07-08 07:34:46.549883
-# day = now.day                   # 8
-# month = now.month               # 7
-# year = now.year                 # 2021
-# hour = now.hour                 # 7
-# minute = now.minute             # 38
-# second = now.second
-# timestamp = now.timestamp()
+# datetimenow = datetime.now()
+# print(datetimenow)                      # 2021-07-08 07:34:46.549883
+# day = datetimenow.day                   # 8
+# month = datetimenow.month               # 7
+# year = datetimenow.year                 # 2021
+# hour = datetimenow.hour                 # 7
+# minute = datetimenow.minute             # 38
+# second = datetimenow.second
+# timestamp = datetimenow.timestamp()
 # print(day, month, year, hour, minute)
 # print('timestamp', timestamp)
 # print(f'{day}/{month}/{year}, {hour}:{minute}')  # 8/7/2021, 7:38

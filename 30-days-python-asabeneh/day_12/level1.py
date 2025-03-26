@@ -47,4 +47,4 @@ listOfChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 
 def rgbcolorgen():
     return f'rgb({randint(0,255),randint(0,255),randint(0,255)})'
-print(rgbcolorgen())
+# print(rgbcolorgen())

@@ -1,3 +1,4 @@
+#Heard about comprehension let's see what's List Comprehension
 def negative_integers():
     list1=[-4,-3,-2,-1,0,2,4,6]
 

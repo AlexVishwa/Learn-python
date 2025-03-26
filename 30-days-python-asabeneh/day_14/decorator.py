@@ -1,7 +1,6 @@
-"""These decorator functions are higher order functions
-that take functions as parameters"""
-
-# * Applying Multiple Decorators to a Single Function
+#These decorator functions are higher order functions 
+# that take functions as parameters
+# Applying Multiple Decorators to a Single Function
 
 
 # First Decorator

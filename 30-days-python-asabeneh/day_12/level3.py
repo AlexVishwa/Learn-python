@@ -16,3 +16,9 @@ def seven_random_numbers():
     print(set1)
     list1 = list(set1)
     print(list1)
+
+# print(shuffle_the_list())
+
+# list_anon=[1,2,3,4,5,6,7,8,9,10]
+# list_anon[randint(0,9)],list_anon[randint(0,9)]=list_anon[randint(0,9)],list_anon[randint(0,9)]
+# print(list_anon)

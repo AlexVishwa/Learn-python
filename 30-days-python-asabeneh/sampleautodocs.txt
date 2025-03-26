@@ -1,2 +1,2 @@
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/<filename>.py) -->
-<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/<filename>.py -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/<day>/<filename>.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->

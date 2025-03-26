@@ -23,8 +23,9 @@ print(food_stuff_li[0],food_stuff_li[1],food_stuff_li[-1],food_stuff_li[-2])
 # NameError: name 'food_stuff_tp' is not defined. Did you mean: 'food_stuff_li'?
 nordic_countries = ('Denmark', 'Finland','Iceland', 'Norway', 'Sweden')
 try:
-    print('India' in nordic_countries)
+    print(nordic_countries.index('India'))
+    # print('India' in nordic_countries)
 # Works for tuple as well as list, in and not in
-except:
+except ValueError:
     print("Doesn't exists")
 # ValueError: tuple.index(x): x not in tuple
