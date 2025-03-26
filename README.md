@@ -565,9 +565,10 @@ print(food_stuff_li[0],food_stuff_li[1],food_stuff_li[-1],food_stuff_li[-2])
 # NameError: name 'food_stuff_tp' is not defined. Did you mean: 'food_stuff_li'?
 nordic_countries = ('Denmark', 'Finland','Iceland', 'Norway', 'Sweden')
 try:
-    print('India' in nordic_countries)
+    print(nordic_countries.index('India'))
+    # print('India' in nordic_countries)
 # Works for tuple as well as list, in and not in
-except:
+except ValueError:
     print("Doesn't exists")
 # ValueError: tuple.index(x): x not in tuple
 ```
@@ -823,210 +824,32 @@ print(f"The sum of even numbers {sum}")
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_10/level3.py) -->
 <!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_10/level3.py -->
 ```py
-# from ../data/countries import countries
-# import sys
-# sys.path.append('../data')
-# import countries_data
-# print(countries)
-    
+from functools import reduce
+import os
+import json
+from pathlib import Path
+
+
 class day10:
     def __init__():
         sum=0
-        countries = [
-    'Afghanistan',
-    'Albania',
-    'Algeria',
-    'Andorra',
-    'Angola',
-    'Antigua and Barbuda',
-    'Argentina',
-    'Armenia',
-    'Australia',
-    'Austria',
-    'Azerbaijan',
-    'Bahamas',
-    'Bahrain',
-    'Bangladesh',
-    'Barbados',
-    'Belarus',
-    'Belgium',
-    'Belize',
-    'Benin',
-    'Bhutan',
-    'Bolivia',
-    'Bosnia and Herzegovina',
-    'Botswana',
-    'Brazil',
-    'Brunei',
-    'Bulgaria',
-    'Burkina Faso',
-    'Burundi',
-    'Cambodia',
-    'Cameroon',
-    'Canada',
-    'Cape Verde',
-    'Central African Republic',
-    'Chad',
-    'Chile',
-    'China',
-    'Colombi',
-    'Comoros',
-    'Congo (Brazzaville)',
-    'Congo',
-    'Costa Rica',
-    "Cote d'Ivoire",
-    'Croatia',
-    'Cuba',
-    'Cyprus',
-    'Czech Republic',
-    'Denmark',
-    'Djibouti',
-    'Dominica',
-    'Dominican Republic',
-    'East Timor (Timor Timur)',
-    'Ecuador',
-    'Egypt',
-    'El Salvador',
-    'Equatorial Guinea',
-    'Eritrea',
-    'Estonia',
-    'Ethiopia',
-    'Fiji',
-    'Finland',
-    'France',
-    'Gabon',
-    'Gambia, The',
-    'Georgia',
-    'Germany',
-    'Ghana',
-    'Greece',
-    'Grenada',
-    'Guatemala',
-    'Guinea',
-    'Guinea-Bissau',
-    'Guyana',
-    'Haiti',
-    'Honduras',
-    'Hungary',
-    'Iceland',
-    'India',
-    'Indonesia',
-    'Iran',
-    'Iraq',
-    'Ireland',
-    'Israel',
-    'Italy',
-    'Jamaica',
-    'Japan',
-    'Jordan',
-    'Kazakhstan',
-    'Kenya',
-    'Kiribati',
-    'Korea, North',
-    'Korea, South',
-    'Kuwait',
-    'Kyrgyzstan',
-    'Laos',
-    'Latvia',
-    'Lebanon',
-    'Lesotho',
-    'Liberia',
-    'Libya',
-    'Liechtenstein',
-    'Lithuania',
-    'Luxembourg',
-    'Macedonia',
-    'Madagascar',
-    'Malawi',
-    'Malaysia',
-    'Maldives',
-    'Mali',
-    'Malta',
-    'Marshall Islands',
-    'Mauritania',
-    'Mauritius',
-    'Mexico',
-    'Micronesia',
-    'Moldova',
-    'Monaco',
-    'Mongolia',
-    'Morocco',
-    'Mozambique',
-    'Myanmar',
-    'Namibia',
-    'Nauru',
-    'Nepal',
-    'Netherlands',
-    'New Zealand',
-    'Nicaragua',
-    'Niger',
-    'Nigeria',
-    'Norway',
-    'Oman',
-    'Pakistan',
-    'Palau',
-    'Panama',
-    'Papua New Guinea',
-    'Paraguay',
-    'Peru',
-    'Philippines',
-    'Poland',
-    'Portugal',
-    'Qatar',
-    'Romania',
-    'Russia',
-    'Rwanda',
-    'Saint Kitts and Nevis',
-    'Saint Lucia',
-    'Saint Vincent',
-    'Samoa',
-    'San Marino',
-    'Sao Tome and Principe',
-    'Saudi Arabia',
-    'Senegal',
-    'Serbia and Montenegro',
-    'Seychelles',
-    'Sierra Leone',
-    'Singapore',
-    'Slovakia',
-    'Slovenia',
-    'Solomon Islands',
-    'Somalia',
-    'South Africa',
-    'Spain',
-    'Sri Lanka',
-    'Sudan',
-    'Suriname',
-    'Swaziland',
-    'Sweden',
-    'Switzerland',
-    'Syria',
-    'Taiwan',
-    'Tajikistan',
-    'Tanzania',
-    'Thailand',
-    'Togo',
-    'Tonga',
-    'Trinidad and Tobago',
-    'Tunisia',
-    'Turkey',
-    'Turkmenistan',
-    'Tuvalu',
-    'Uganda',
-    'Ukraine',
-    'United Arab Emirates',
-    'United Kingdom',
-    'United States',
-    'Uruguay',
-    'Uzbekistan',
-    'Vanuatu',
-    'Vatican City',
-    'Venezuela',
-    'Vietnam',
-    'Yemen',
-    'Zambia',
-    'Zimbabwe',
-    ]
+    def readCountriesDataFromJsonFile():
+        dirname = os.path.dirname(os.path.dirname(__file__))
+        data_file = os.path.join(dirname, "data", "countries_data.json")
+
+        with open(data_file, "r") as f:
+            countries_data = json.load(f)
+        return countries_data
+    
+    def readCountriesFromJsonFile():
+        dirname = os.path.dirname(os.path.dirname(__file__))
+        data_file = os.path.join(dirname, "data", "countries.json")
+
+        with open(data_file, "r") as f:
+            countries = json.load(f)
+        return countries
+    countries_data=readCountriesDataFromJsonFile()
+    countries=readCountriesFromJsonFile()
     for country in countries:
         if(country.find('land')!=-1):
             print(country)
@@ -1042,2626 +865,7 @@ class day10:
     print(fruits2)
     #output:
     # ['lemon', 'mango', 'orange', 'banana']
-    countries_data=[
-        {
-            "name": "Afghanistan",
-            "capital": "Kabul",
-            "languages": [
-                "Pashto",
-                "Uzbek",
-                "Turkmen"
-            ],
-            "population": 27657145,
-            "flag": "https://restcountries.eu/data/afg.svg",
-            "currency": "Afghan afghani"
-        },
-        {
-            "name": "Åland Islands",
-            "capital": "Mariehamn",
-            "languages": [
-                "Swedish"
-            ],
-            "population": 28875,
-            "flag": "https://restcountries.eu/data/ala.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Albania",
-            "capital": "Tirana",
-            "languages": [
-                "Albanian"
-            ],
-            "population": 2886026,
-            "flag": "https://restcountries.eu/data/alb.svg",
-            "currency": "Albanian lek"
-        },
-        {
-            "name": "Algeria",
-            "capital": "Algiers",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 40400000,
-            "flag": "https://restcountries.eu/data/dza.svg",
-            "currency": "Algerian dinar"
-        },
-        {
-            "name": "American Samoa",
-            "capital": "Pago Pago",
-            "languages": [
-                "English",
-                "Samoan"
-            ],
-            "population": 57100,
-            "flag": "https://restcountries.eu/data/asm.svg",
-            "currency": "United State Dollar"
-        },
-        {
-            "name": "Andorra",
-            "capital": "Andorra la Vella",
-            "languages": [
-                "Catalan"
-            ],
-            "population": 78014,
-            "flag": "https://restcountries.eu/data/and.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Angola",
-            "capital": "Luanda",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 25868000,
-            "flag": "https://restcountries.eu/data/ago.svg",
-            "currency": "Angolan kwanza"
-        },
-        {
-            "name": "Anguilla",
-            "capital": "The Valley",
-            "languages": [
-                "English"
-            ],
-            "population": 13452,
-            "flag": "https://restcountries.eu/data/aia.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Antarctica",
-            "capital": "",
-            "languages": [
-                "English",
-                "Russian"
-            ],
-            "population": 1000,
-            "flag": "https://restcountries.eu/data/ata.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Antigua and Barbuda",
-            "capital": "Saint John's",
-            "languages": [
-                "English"
-            ],
-            "population": 86295,
-            "flag": "https://restcountries.eu/data/atg.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Argentina",
-            "capital": "Buenos Aires",
-            "languages": [
-                "Spanish",
-                "Guaraní"
-            ],
-            "population": 43590400,
-            "flag": "https://restcountries.eu/data/arg.svg",
-            "currency": "Argentine peso"
-        },
-        {
-            "name": "Armenia",
-            "capital": "Yerevan",
-            "languages": [
-                "Armenian",
-                "Russian"
-            ],
-            "population": 2994400,
-            "flag": "https://restcountries.eu/data/arm.svg",
-            "currency": "Armenian dram"
-        },
-        {
-            "name": "Aruba",
-            "capital": "Oranjestad",
-            "languages": [
-                "Dutch",
-                "(Eastern) Punjabi"
-            ],
-            "population": 107394,
-            "flag": "https://restcountries.eu/data/abw.svg",
-            "currency": "Aruban florin"
-        },
-        {
-            "name": "Australia",
-            "capital": "Canberra",
-            "languages": [
-                "English"
-            ],
-            "population": 24117360,
-            "flag": "https://restcountries.eu/data/aus.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Austria",
-            "capital": "Vienna",
-            "languages": [
-                "German"
-            ],
-            "population": 8725931,
-            "flag": "https://restcountries.eu/data/aut.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Azerbaijan",
-            "capital": "Baku",
-            "languages": [
-                "Azerbaijani"
-            ],
-            "population": 9730500,
-            "flag": "https://restcountries.eu/data/aze.svg",
-            "currency": "Azerbaijani manat"
-        },
-        {
-            "name": "Bahamas",
-            "capital": "Nassau",
-            "languages": [
-                "English"
-            ],
-            "population": 378040,
-            "flag": "https://restcountries.eu/data/bhs.svg",
-            "currency": "Bahamian dollar"
-        },
-        {
-            "name": "Bahrain",
-            "capital": "Manama",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 1404900,
-            "flag": "https://restcountries.eu/data/bhr.svg",
-            "currency": "Bahraini dinar"
-        },
-        {
-            "name": "Bangladesh",
-            "capital": "Dhaka",
-            "languages": [
-                "Bengali"
-            ],
-            "population": 161006790,
-            "flag": "https://restcountries.eu/data/bgd.svg",
-            "currency": "Bangladeshi taka"
-        },
-        {
-            "name": "Barbados",
-            "capital": "Bridgetown",
-            "languages": [
-                "English"
-            ],
-            "population": 285000,
-            "flag": "https://restcountries.eu/data/brb.svg",
-            "currency": "Barbadian dollar"
-        },
-        {
-            "name": "Belarus",
-            "capital": "Minsk",
-            "languages": [
-                "Belarusian",
-                "Russian"
-            ],
-            "population": 9498700,
-            "flag": "https://restcountries.eu/data/blr.svg",
-            "currency": "New Belarusian ruble"
-        },
-        {
-            "name": "Belgium",
-            "capital": "Brussels",
-            "languages": [
-                "Dutch",
-                "French",
-                "German"
-            ],
-            "population": 11319511,
-            "flag": "https://restcountries.eu/data/bel.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Belize",
-            "capital": "Belmopan",
-            "languages": [
-                "English",
-                "Spanish"
-            ],
-            "population": 370300,
-            "flag": "https://restcountries.eu/data/blz.svg",
-            "currency": "Belize dollar"
-        },
-        {
-            "name": "Benin",
-            "capital": "Porto-Novo",
-            "languages": [
-                "French"
-            ],
-            "population": 10653654,
-            "flag": "https://restcountries.eu/data/ben.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Bermuda",
-            "capital": "Hamilton",
-            "languages": [
-                "English"
-            ],
-            "population": 61954,
-            "flag": "https://restcountries.eu/data/bmu.svg",
-            "currency": "Bermudian dollar"
-        },
-        {
-            "name": "Bhutan",
-            "capital": "Thimphu",
-            "languages": [
-                "Dzongkha"
-            ],
-            "population": 775620,
-            "flag": "https://restcountries.eu/data/btn.svg",
-            "currency": "Bhutanese ngultrum"
-        },
-        {
-            "name": "Bolivia (Plurinational State of)",
-            "capital": "Sucre",
-            "languages": [
-                "Spanish",
-                "Aymara",
-                "Quechua"
-            ],
-            "population": 10985059,
-            "flag": "https://restcountries.eu/data/bol.svg",
-            "currency": "Bolivian boliviano"
-        },
-        {
-            "name": "Bonaire, Sint Eustatius and Saba",
-            "capital": "Kralendijk",
-            "languages": [
-                "Dutch"
-            ],
-            "population": 17408,
-            "flag": "https://restcountries.eu/data/bes.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Bosnia and Herzegovina",
-            "capital": "Sarajevo",
-            "languages": [
-                "Bosnian",
-                "Croatian",
-                "Serbian"
-            ],
-            "population": 3531159,
-            "flag": "https://restcountries.eu/data/bih.svg",
-            "currency": "Bosnia and Herzegovina convertible mark"
-        },
-        {
-            "name": "Botswana",
-            "capital": "Gaborone",
-            "languages": [
-                "English",
-                "Tswana"
-            ],
-            "population": 2141206,
-            "flag": "https://restcountries.eu/data/bwa.svg",
-            "currency": "Botswana pula"
-        },
-        {
-            "name": "Bouvet Island",
-            "capital": "",
-            "languages": [
-                "Norwegian",
-                "Norwegian Bokmål",
-                "Norwegian Nynorsk"
-            ],
-            "population": 0,
-            "flag": "https://restcountries.eu/data/bvt.svg",
-            "currency": "Norwegian krone"
-        },
-        {
-            "name": "Brazil",
-            "capital": "Brasília",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 206135893,
-            "flag": "https://restcountries.eu/data/bra.svg",
-            "currency": "Brazilian real"
-        },
-        {
-            "name": "British Indian Ocean Territory",
-            "capital": "Diego Garcia",
-            "languages": [
-                "English"
-            ],
-            "population": 3000,
-            "flag": "https://restcountries.eu/data/iot.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "United States Minor Outlying Islands",
-            "capital": "",
-            "languages": [
-                "English"
-            ],
-            "population": 300,
-            "flag": "https://restcountries.eu/data/umi.svg",
-            "currency": "United States Dollar"
-        },
-        {
-            "name": "Virgin Islands (British)",
-            "capital": "Road Town",
-            "languages": [
-                "English"
-            ],
-            "population": 28514,
-            "flag": "https://restcountries.eu/data/vgb.svg",
-            "currency": "[D]"
-        },
-        {
-            "name": "Virgin Islands (U.S.)",
-            "capital": "Charlotte Amalie",
-            "languages": [
-                "English"
-            ],
-            "population": 114743,
-            "flag": "https://restcountries.eu/data/vir.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Brunei Darussalam",
-            "capital": "Bandar Seri Begawan",
-            "languages": [
-                "Malay"
-            ],
-            "population": 411900,
-            "flag": "https://restcountries.eu/data/brn.svg",
-            "currency": "Brunei dollar"
-        },
-        {
-            "name": "Bulgaria",
-            "capital": "Sofia",
-            "languages": [
-                "Bulgarian"
-            ],
-            "population": 7153784,
-            "flag": "https://restcountries.eu/data/bgr.svg",
-            "currency": "Bulgarian lev"
-        },
-        {
-            "name": "Burkina Faso",
-            "capital": "Ouagadougou",
-            "languages": [
-                "French",
-                "Fula"
-            ],
-            "population": 19034397,
-            "flag": "https://restcountries.eu/data/bfa.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Burundi",
-            "capital": "Bujumbura",
-            "languages": [
-                "French",
-                "Kirundi"
-            ],
-            "population": 10114505,
-            "flag": "https://restcountries.eu/data/bdi.svg",
-            "currency": "Burundian franc"
-        },
-        {
-            "name": "Cambodia",
-            "capital": "Phnom Penh",
-            "languages": [
-                "Khmer"
-            ],
-            "population": 15626444,
-            "flag": "https://restcountries.eu/data/khm.svg",
-            "currency": "Cambodian riel"
-        },
-        {
-            "name": "Cameroon",
-            "capital": "Yaoundé",
-            "languages": [
-                "English",
-                "French"
-            ],
-            "population": 22709892,
-            "flag": "https://restcountries.eu/data/cmr.svg",
-            "currency": "Central African CFA franc"
-        },
-        {
-            "name": "Canada",
-            "capital": "Ottawa",
-            "languages": [
-                "English",
-                "French"
-            ],
-            "population": 36155487,
-            "flag": "https://restcountries.eu/data/can.svg",
-            "currency": "Canadian dollar"
-        },
-        {
-            "name": "Cabo Verde",
-            "capital": "Praia",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 531239,
-            "flag": "https://restcountries.eu/data/cpv.svg",
-            "currency": "Cape Verdean escudo"
-        },
-        {
-            "name": "Cayman Islands",
-            "capital": "George Town",
-            "languages": [
-                "English"
-            ],
-            "population": 58238,
-            "flag": "https://restcountries.eu/data/cym.svg",
-            "currency": "Cayman Islands dollar"
-        },
-        {
-            "name": "Central African Republic",
-            "capital": "Bangui",
-            "languages": [
-                "French",
-                "Sango"
-            ],
-            "population": 4998000,
-            "flag": "https://restcountries.eu/data/caf.svg",
-            "currency": "Central African CFA franc"
-        },
-        {
-            "name": "Chad",
-            "capital": "N'Djamena",
-            "languages": [
-                "French",
-                "Arabic"
-            ],
-            "population": 14497000,
-            "flag": "https://restcountries.eu/data/tcd.svg",
-            "currency": "Central African CFA franc"
-        },
-        {
-            "name": "Chile",
-            "capital": "Santiago",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 18191900,
-            "flag": "https://restcountries.eu/data/chl.svg",
-            "currency": "Chilean peso"
-        },
-        {
-            "name": "China",
-            "capital": "Beijing",
-            "languages": [
-                "Chinese"
-            ],
-            "population": 1377422166,
-            "flag": "https://restcountries.eu/data/chn.svg",
-            "currency": "Chinese yuan"
-        },
-        {
-            "name": "Christmas Island",
-            "capital": "Flying Fish Cove",
-            "languages": [
-                "English"
-            ],
-            "population": 2072,
-            "flag": "https://restcountries.eu/data/cxr.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Cocos (Keeling) Islands",
-            "capital": "West Island",
-            "languages": [
-                "English"
-            ],
-            "population": 550,
-            "flag": "https://restcountries.eu/data/cck.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Colombia",
-            "capital": "Bogotá",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 48759958,
-            "flag": "https://restcountries.eu/data/col.svg",
-            "currency": "Colombian peso"
-        },
-        {
-            "name": "Comoros",
-            "capital": "Moroni",
-            "languages": [
-                "Arabic",
-                "French"
-            ],
-            "population": 806153,
-            "flag": "https://restcountries.eu/data/com.svg",
-            "currency": "Comorian franc"
-        },
-        {
-            "name": "Congo",
-            "capital": "Brazzaville",
-            "languages": [
-                "French",
-                "Lingala"
-            ],
-            "population": 4741000,
-            "flag": "https://restcountries.eu/data/cog.svg",
-            "currency": "Central African CFA franc"
-        },
-        {
-            "name": "Congo (Democratic Republic of the)",
-            "capital": "Kinshasa",
-            "languages": [
-                "French",
-                "Lingala",
-                "Kongo",
-                "Swahili",
-                "Luba-Katanga"
-            ],
-            "population": 85026000,
-            "flag": "https://restcountries.eu/data/cod.svg",
-            "currency": "Congolese franc"
-        },
-        {
-            "name": "Cook Islands",
-            "capital": "Avarua",
-            "languages": [
-                "English"
-            ],
-            "population": 18100,
-            "flag": "https://restcountries.eu/data/cok.svg",
-            "currency": "New Zealand dollar"
-        },
-        {
-            "name": "Costa Rica",
-            "capital": "San José",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 4890379,
-            "flag": "https://restcountries.eu/data/cri.svg",
-            "currency": "Costa Rican colón"
-        },
-        {
-            "name": "Croatia",
-            "capital": "Zagreb",
-            "languages": [
-                "Croatian"
-            ],
-            "population": 4190669,
-            "flag": "https://restcountries.eu/data/hrv.svg",
-            "currency": "Croatian kuna"
-        },
-        {
-            "name": "Cuba",
-            "capital": "Havana",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 11239004,
-            "flag": "https://restcountries.eu/data/cub.svg",
-            "currency": "Cuban convertible peso"
-        },
-        {
-            "name": "Curaçao",
-            "capital": "Willemstad",
-            "languages": [
-                "Dutch",
-                "(Eastern) Punjabi",
-                "English"
-            ],
-            "population": 154843,
-            "flag": "https://restcountries.eu/data/cuw.svg",
-            "currency": "Netherlands Antillean guilder"
-        },
-        {
-            "name": "Cyprus",
-            "capital": "Nicosia",
-            "languages": [
-                "Greek (modern)",
-                "Turkish",
-                "Armenian"
-            ],
-            "population": 847000,
-            "flag": "https://restcountries.eu/data/cyp.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Czech Republic",
-            "capital": "Prague",
-            "languages": [
-                "Czech",
-                "Slovak"
-            ],
-            "population": 10558524,
-            "flag": "https://restcountries.eu/data/cze.svg",
-            "currency": "Czech koruna"
-        },
-        {
-            "name": "Denmark",
-            "capital": "Copenhagen",
-            "languages": [
-                "Danish"
-            ],
-            "population": 5717014,
-            "flag": "https://restcountries.eu/data/dnk.svg",
-            "currency": "Danish krone"
-        },
-        {
-            "name": "Djibouti",
-            "capital": "Djibouti",
-            "languages": [
-                "French",
-                "Arabic"
-            ],
-            "population": 900000,
-            "flag": "https://restcountries.eu/data/dji.svg",
-            "currency": "Djiboutian franc"
-        },
-        {
-            "name": "Dominica",
-            "capital": "Roseau",
-            "languages": [
-                "English"
-            ],
-            "population": 71293,
-            "flag": "https://restcountries.eu/data/dma.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Dominican Republic",
-            "capital": "Santo Domingo",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 10075045,
-            "flag": "https://restcountries.eu/data/dom.svg",
-            "currency": "Dominican peso"
-        },
-        {
-            "name": "Ecuador",
-            "capital": "Quito",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 16545799,
-            "flag": "https://restcountries.eu/data/ecu.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Egypt",
-            "capital": "Cairo",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 91290000,
-            "flag": "https://restcountries.eu/data/egy.svg",
-            "currency": "Egyptian pound"
-        },
-        {
-            "name": "El Salvador",
-            "capital": "San Salvador",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 6520675,
-            "flag": "https://restcountries.eu/data/slv.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Equatorial Guinea",
-            "capital": "Malabo",
-            "languages": [
-                "Spanish",
-                "French"
-            ],
-            "population": 1222442,
-            "flag": "https://restcountries.eu/data/gnq.svg",
-            "currency": "Central African CFA franc"
-        },
-        {
-            "name": "Eritrea",
-            "capital": "Asmara",
-            "languages": [
-                "Tigrinya",
-                "Arabic",
-                "English"
-            ],
-            "population": 5352000,
-            "flag": "https://restcountries.eu/data/eri.svg",
-            "currency": "Eritrean nakfa"
-        },
-        {
-            "name": "Estonia",
-            "capital": "Tallinn",
-            "languages": [
-                "Estonian"
-            ],
-            "population": 1315944,
-            "flag": "https://restcountries.eu/data/est.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Ethiopia",
-            "capital": "Addis Ababa",
-            "languages": [
-                "Amharic"
-            ],
-            "population": 92206005,
-            "flag": "https://restcountries.eu/data/eth.svg",
-            "currency": "Ethiopian birr"
-        },
-        {
-            "name": "Falkland Islands (Malvinas)",
-            "capital": "Stanley",
-            "languages": [
-                "English"
-            ],
-            "population": 2563,
-            "flag": "https://restcountries.eu/data/flk.svg",
-            "currency": "Falkland Islands pound"
-        },
-        {
-            "name": "Faroe Islands",
-            "capital": "Tórshavn",
-            "languages": [
-                "Faroese"
-            ],
-            "population": 49376,
-            "flag": "https://restcountries.eu/data/fro.svg",
-            "currency": "Danish krone"
-        },
-        {
-            "name": "Fiji",
-            "capital": "Suva",
-            "languages": [
-                "English",
-                "Fijian",
-                "Hindi",
-                "Urdu"
-            ],
-            "population": 867000,
-            "flag": "https://restcountries.eu/data/fji.svg",
-            "currency": "Fijian dollar"
-        },
-        {
-            "name": "Finland",
-            "capital": "Helsinki",
-            "languages": [
-                "Finnish",
-                "Swedish"
-            ],
-            "population": 5491817,
-            "flag": "https://restcountries.eu/data/fin.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "France",
-            "capital": "Paris",
-            "languages": [
-                "French"
-            ],
-            "population": 66710000,
-            "flag": "https://restcountries.eu/data/fra.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "French Guiana",
-            "capital": "Cayenne",
-            "languages": [
-                "French"
-            ],
-            "population": 254541,
-            "flag": "https://restcountries.eu/data/guf.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "French Polynesia",
-            "capital": "Papeetē",
-            "languages": [
-                "French"
-            ],
-            "population": 271800,
-            "flag": "https://restcountries.eu/data/pyf.svg",
-            "currency": "CFP franc"
-        },
-        {
-            "name": "French Southern Territories",
-            "capital": "Port-aux-Français",
-            "languages": [
-                "French"
-            ],
-            "population": 140,
-            "flag": "https://restcountries.eu/data/atf.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Gabon",
-            "capital": "Libreville",
-            "languages": [
-                "French"
-            ],
-            "population": 1802278,
-            "flag": "https://restcountries.eu/data/gab.svg",
-            "currency": "Central African CFA franc"
-        },
-        {
-            "name": "Gambia",
-            "capital": "Banjul",
-            "languages": [
-                "English"
-            ],
-            "population": 1882450,
-            "flag": "https://restcountries.eu/data/gmb.svg",
-            "currency": "Gambian dalasi"
-        },
-        {
-            "name": "Georgia",
-            "capital": "Tbilisi",
-            "languages": [
-                "Georgian"
-            ],
-            "population": 3720400,
-            "flag": "https://restcountries.eu/data/geo.svg",
-            "currency": "Georgian Lari"
-        },
-        {
-            "name": "Germany",
-            "capital": "Berlin",
-            "languages": [
-                "German"
-            ],
-            "population": 81770900,
-            "flag": "https://restcountries.eu/data/deu.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Ghana",
-            "capital": "Accra",
-            "languages": [
-                "English"
-            ],
-            "population": 27670174,
-            "flag": "https://restcountries.eu/data/gha.svg",
-            "currency": "Ghanaian cedi"
-        },
-        {
-            "name": "Gibraltar",
-            "capital": "Gibraltar",
-            "languages": [
-                "English"
-            ],
-            "population": 33140,
-            "flag": "https://restcountries.eu/data/gib.svg",
-            "currency": "Gibraltar pound"
-        },
-        {
-            "name": "Greece",
-            "capital": "Athens",
-            "languages": [
-                "Greek (modern)"
-            ],
-            "population": 10858018,
-            "flag": "https://restcountries.eu/data/grc.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Greenland",
-            "capital": "Nuuk",
-            "languages": [
-                "Kalaallisut"
-            ],
-            "population": 55847,
-            "flag": "https://restcountries.eu/data/grl.svg",
-            "currency": "Danish krone"
-        },
-        {
-            "name": "Grenada",
-            "capital": "St. George's",
-            "languages": [
-                "English"
-            ],
-            "population": 103328,
-            "flag": "https://restcountries.eu/data/grd.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Guadeloupe",
-            "capital": "Basse-Terre",
-            "languages": [
-                "French"
-            ],
-            "population": 400132,
-            "flag": "https://restcountries.eu/data/glp.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Guam",
-            "capital": "Hagåtña",
-            "languages": [
-                "English",
-                "Chamorro",
-                "Spanish"
-            ],
-            "population": 184200,
-            "flag": "https://restcountries.eu/data/gum.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Guatemala",
-            "capital": "Guatemala City",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 16176133,
-            "flag": "https://restcountries.eu/data/gtm.svg",
-            "currency": "Guatemalan quetzal"
-        },
-        {
-            "name": "Guernsey",
-            "capital": "St. Peter Port",
-            "languages": [
-                "English",
-                "French"
-            ],
-            "population": 62999,
-            "flag": "https://restcountries.eu/data/ggy.svg",
-            "currency": "British pound"
-        },
-        {
-            "name": "Guinea",
-            "capital": "Conakry",
-            "languages": [
-                "French",
-                "Fula"
-            ],
-            "population": 12947000,
-            "flag": "https://restcountries.eu/data/gin.svg",
-            "currency": "Guinean franc"
-        },
-        {
-            "name": "Guinea-Bissau",
-            "capital": "Bissau",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 1547777,
-            "flag": "https://restcountries.eu/data/gnb.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Guyana",
-            "capital": "Georgetown",
-            "languages": [
-                "English"
-            ],
-            "population": 746900,
-            "flag": "https://restcountries.eu/data/guy.svg",
-            "currency": "Guyanese dollar"
-        },
-        {
-            "name": "Haiti",
-            "capital": "Port-au-Prince",
-            "languages": [
-                "French",
-                "Haitian"
-            ],
-            "population": 11078033,
-            "flag": "https://restcountries.eu/data/hti.svg",
-            "currency": "Haitian gourde"
-        },
-        {
-            "name": "Heard Island and McDonald Islands",
-            "capital": "",
-            "languages": [
-                "English"
-            ],
-            "population": 0,
-            "flag": "https://restcountries.eu/data/hmd.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Holy See",
-            "capital": "Rome",
-            "languages": [
-                "Latin",
-                "Italian",
-                "French",
-                "German"
-            ],
-            "population": 451,
-            "flag": "https://restcountries.eu/data/vat.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Honduras",
-            "capital": "Tegucigalpa",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 8576532,
-            "flag": "https://restcountries.eu/data/hnd.svg",
-            "currency": "Honduran lempira"
-        },
-        {
-            "name": "Hong Kong",
-            "capital": "City of Victoria",
-            "languages": [
-                "English",
-                "Chinese"
-            ],
-            "population": 7324300,
-            "flag": "https://restcountries.eu/data/hkg.svg",
-            "currency": "Hong Kong dollar"
-        },
-        {
-            "name": "Hungary",
-            "capital": "Budapest",
-            "languages": [
-                "Hungarian"
-            ],
-            "population": 9823000,
-            "flag": "https://restcountries.eu/data/hun.svg",
-            "currency": "Hungarian forint"
-        },
-        {
-            "name": "Iceland",
-            "capital": "Reykjavík",
-            "languages": [
-                "Icelandic"
-            ],
-            "population": 334300,
-            "flag": "https://restcountries.eu/data/isl.svg",
-            "currency": "Icelandic króna"
-        },
-        {
-            "name": "India",
-            "capital": "New Delhi",
-            "languages": [
-                "Hindi",
-                "English"
-            ],
-            "population": 1295210000,
-            "flag": "https://restcountries.eu/data/ind.svg",
-            "currency": "Indian rupee"
-        },
-        {
-            "name": "Indonesia",
-            "capital": "Jakarta",
-            "languages": [
-                "Indonesian"
-            ],
-            "population": 258705000,
-            "flag": "https://restcountries.eu/data/idn.svg",
-            "currency": "Indonesian rupiah"
-        },
-        {
-            "name": "Côte d'Ivoire",
-            "capital": "Yamoussoukro",
-            "languages": [
-                "French"
-            ],
-            "population": 22671331,
-            "flag": "https://restcountries.eu/data/civ.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Iran (Islamic Republic of)",
-            "capital": "Tehran",
-            "languages": [
-                "Persian (Farsi)"
-            ],
-            "population": 79369900,
-            "flag": "https://restcountries.eu/data/irn.svg",
-            "currency": "Iranian rial"
-        },
-        {
-            "name": "Iraq",
-            "capital": "Baghdad",
-            "languages": [
-                "Arabic",
-                "Kurdish"
-            ],
-            "population": 37883543,
-            "flag": "https://restcountries.eu/data/irq.svg",
-            "currency": "Iraqi dinar"
-        },
-        {
-            "name": "Ireland",
-            "capital": "Dublin",
-            "languages": [
-                "Irish",
-                "English"
-            ],
-            "population": 6378000,
-            "flag": "https://restcountries.eu/data/irl.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Isle of Man",
-            "capital": "Douglas",
-            "languages": [
-                "English",
-                "Manx"
-            ],
-            "population": 84497,
-            "flag": "https://restcountries.eu/data/imn.svg",
-            "currency": "British pound"
-        },
-        {
-            "name": "Israel",
-            "capital": "Jerusalem",
-            "languages": [
-                "Hebrew (modern)",
-                "Arabic"
-            ],
-            "population": 8527400,
-            "flag": "https://restcountries.eu/data/isr.svg",
-            "currency": "Israeli new shekel"
-        },
-        {
-            "name": "Italy",
-            "capital": "Rome",
-            "languages": [
-                "Italian"
-            ],
-            "population": 60665551,
-            "flag": "https://restcountries.eu/data/ita.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Jamaica",
-            "capital": "Kingston",
-            "languages": [
-                "English"
-            ],
-            "population": 2723246,
-            "flag": "https://restcountries.eu/data/jam.svg",
-            "currency": "Jamaican dollar"
-        },
-        {
-            "name": "Japan",
-            "capital": "Tokyo",
-            "languages": [
-                "Japanese"
-            ],
-            "population": 126960000,
-            "flag": "https://restcountries.eu/data/jpn.svg",
-            "currency": "Japanese yen"
-        },
-        {
-            "name": "Jersey",
-            "capital": "Saint Helier",
-            "languages": [
-                "English",
-                "French"
-            ],
-            "population": 100800,
-            "flag": "https://restcountries.eu/data/jey.svg",
-            "currency": "British pound"
-        },
-        {
-            "name": "Jordan",
-            "capital": "Amman",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 9531712,
-            "flag": "https://restcountries.eu/data/jor.svg",
-            "currency": "Jordanian dinar"
-        },
-        {
-            "name": "Kazakhstan",
-            "capital": "Astana",
-            "languages": [
-                "Kazakh",
-                "Russian"
-            ],
-            "population": 17753200,
-            "flag": "https://restcountries.eu/data/kaz.svg",
-            "currency": "Kazakhstani tenge"
-        },
-        {
-            "name": "Kenya",
-            "capital": "Nairobi",
-            "languages": [
-                "English",
-                "Swahili"
-            ],
-            "population": 47251000,
-            "flag": "https://restcountries.eu/data/ken.svg",
-            "currency": "Kenyan shilling"
-        },
-        {
-            "name": "Kiribati",
-            "capital": "South Tarawa",
-            "languages": [
-                "English"
-            ],
-            "population": 113400,
-            "flag": "https://restcountries.eu/data/kir.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Kuwait",
-            "capital": "Kuwait City",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 4183658,
-            "flag": "https://restcountries.eu/data/kwt.svg",
-            "currency": "Kuwaiti dinar"
-        },
-        {
-            "name": "Kyrgyzstan",
-            "capital": "Bishkek",
-            "languages": [
-                "Kyrgyz",
-                "Russian"
-            ],
-            "population": 6047800,
-            "flag": "https://restcountries.eu/data/kgz.svg",
-            "currency": "Kyrgyzstani som"
-        },
-        {
-            "name": "Lao People's Democratic Republic",
-            "capital": "Vientiane",
-            "languages": [
-                "Lao"
-            ],
-            "population": 6492400,
-            "flag": "https://restcountries.eu/data/lao.svg",
-            "currency": "Lao kip"
-        },
-        {
-            "name": "Latvia",
-            "capital": "Riga",
-            "languages": [
-                "Latvian"
-            ],
-            "population": 1961600,
-            "flag": "https://restcountries.eu/data/lva.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Lebanon",
-            "capital": "Beirut",
-            "languages": [
-                "Arabic",
-                "French"
-            ],
-            "population": 5988000,
-            "flag": "https://restcountries.eu/data/lbn.svg",
-            "currency": "Lebanese pound"
-        },
-        {
-            "name": "Lesotho",
-            "capital": "Maseru",
-            "languages": [
-                "English",
-                "Southern Sotho"
-            ],
-            "population": 1894194,
-            "flag": "https://restcountries.eu/data/lso.svg",
-            "currency": "Lesotho loti"
-        },
-        {
-            "name": "Liberia",
-            "capital": "Monrovia",
-            "languages": [
-                "English"
-            ],
-            "population": 4615000,
-            "flag": "https://restcountries.eu/data/lbr.svg",
-            "currency": "Liberian dollar"
-        },
-        {
-            "name": "Libya",
-            "capital": "Tripoli",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 6385000,
-            "flag": "https://restcountries.eu/data/lby.svg",
-            "currency": "Libyan dinar"
-        },
-        {
-            "name": "Liechtenstein",
-            "capital": "Vaduz",
-            "languages": [
-                "German"
-            ],
-            "population": 37623,
-            "flag": "https://restcountries.eu/data/lie.svg",
-            "currency": "Swiss franc"
-        },
-        {
-            "name": "Lithuania",
-            "capital": "Vilnius",
-            "languages": [
-                "Lithuanian"
-            ],
-            "population": 2872294,
-            "flag": "https://restcountries.eu/data/ltu.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Luxembourg",
-            "capital": "Luxembourg",
-            "languages": [
-                "French",
-                "German",
-                "Luxembourgish"
-            ],
-            "population": 576200,
-            "flag": "https://restcountries.eu/data/lux.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Macao",
-            "capital": "",
-            "languages": [
-                "Chinese",
-                "Portuguese"
-            ],
-            "population": 649100,
-            "flag": "https://restcountries.eu/data/mac.svg",
-            "currency": "Macanese pataca"
-        },
-        {
-            "name": "Macedonia (the former Yugoslav Republic of)",
-            "capital": "Skopje",
-            "languages": [
-                "Macedonian"
-            ],
-            "population": 2058539,
-            "flag": "https://restcountries.eu/data/mkd.svg",
-            "currency": "Macedonian denar"
-        },
-        {
-            "name": "Madagascar",
-            "capital": "Antananarivo",
-            "languages": [
-                "French",
-                "Malagasy"
-            ],
-            "population": 22434363,
-            "flag": "https://restcountries.eu/data/mdg.svg",
-            "currency": "Malagasy ariary"
-        },
-        {
-            "name": "Malawi",
-            "capital": "Lilongwe",
-            "languages": [
-                "English",
-                "Chichewa"
-            ],
-            "population": 16832910,
-            "flag": "https://restcountries.eu/data/mwi.svg",
-            "currency": "Malawian kwacha"
-        },
-        {
-            "name": "Malaysia",
-            "capital": "Kuala Lumpur",
-            "languages": [
-                "Malaysian"
-            ],
-            "population": 31405416,
-            "flag": "https://restcountries.eu/data/mys.svg",
-            "currency": "Malaysian ringgit"
-        },
-        {
-            "name": "Maldives",
-            "capital": "Malé",
-            "languages": [
-                "Divehi"
-            ],
-            "population": 344023,
-            "flag": "https://restcountries.eu/data/mdv.svg",
-            "currency": "Maldivian rufiyaa"
-        },
-        {
-            "name": "Mali",
-            "capital": "Bamako",
-            "languages": [
-                "French"
-            ],
-            "population": 18135000,
-            "flag": "https://restcountries.eu/data/mli.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Malta",
-            "capital": "Valletta",
-            "languages": [
-                "Maltese",
-                "English"
-            ],
-            "population": 425384,
-            "flag": "https://restcountries.eu/data/mlt.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Marshall Islands",
-            "capital": "Majuro",
-            "languages": [
-                "English",
-                "Marshallese"
-            ],
-            "population": 54880,
-            "flag": "https://restcountries.eu/data/mhl.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Martinique",
-            "capital": "Fort-de-France",
-            "languages": [
-                "French"
-            ],
-            "population": 378243,
-            "flag": "https://restcountries.eu/data/mtq.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Mauritania",
-            "capital": "Nouakchott",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 3718678,
-            "flag": "https://restcountries.eu/data/mrt.svg",
-            "currency": "Mauritanian ouguiya"
-        },
-        {
-            "name": "Mauritius",
-            "capital": "Port Louis",
-            "languages": [
-                "English"
-            ],
-            "population": 1262879,
-            "flag": "https://restcountries.eu/data/mus.svg",
-            "currency": "Mauritian rupee"
-        },
-        {
-            "name": "Mayotte",
-            "capital": "Mamoudzou",
-            "languages": [
-                "French"
-            ],
-            "population": 226915,
-            "flag": "https://restcountries.eu/data/myt.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Mexico",
-            "capital": "Mexico City",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 122273473,
-            "flag": "https://restcountries.eu/data/mex.svg",
-            "currency": "Mexican peso"
-        },
-        {
-            "name": "Micronesia (Federated States of)",
-            "capital": "Palikir",
-            "languages": [
-                "English"
-            ],
-            "population": 102800,
-            "flag": "https://restcountries.eu/data/fsm.svg",
-            "currency": "[D]"
-        },
-        {
-            "name": "Moldova (Republic of)",
-            "capital": "Chișinău",
-            "languages": [
-                "Romanian"
-            ],
-            "population": 3553100,
-            "flag": "https://restcountries.eu/data/mda.svg",
-            "currency": "Moldovan leu"
-        },
-        {
-            "name": "Monaco",
-            "capital": "Monaco",
-            "languages": [
-                "French"
-            ],
-            "population": 38400,
-            "flag": "https://restcountries.eu/data/mco.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Mongolia",
-            "capital": "Ulan Bator",
-            "languages": [
-                "Mongolian"
-            ],
-            "population": 3093100,
-            "flag": "https://restcountries.eu/data/mng.svg",
-            "currency": "Mongolian tögrög"
-        },
-        {
-            "name": "Montenegro",
-            "capital": "Podgorica",
-            "languages": [
-                "Serbian",
-                "Bosnian",
-                "Albanian",
-                "Croatian"
-            ],
-            "population": 621810,
-            "flag": "https://restcountries.eu/data/mne.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Montserrat",
-            "capital": "Plymouth",
-            "languages": [
-                "English"
-            ],
-            "population": 4922,
-            "flag": "https://restcountries.eu/data/msr.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Morocco",
-            "capital": "Rabat",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 33337529,
-            "flag": "https://restcountries.eu/data/mar.svg",
-            "currency": "Moroccan dirham"
-        },
-        {
-            "name": "Mozambique",
-            "capital": "Maputo",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 26423700,
-            "flag": "https://restcountries.eu/data/moz.svg",
-            "currency": "Mozambican metical"
-        },
-        {
-            "name": "Myanmar",
-            "capital": "Naypyidaw",
-            "languages": [
-                "Burmese"
-            ],
-            "population": 51419420,
-            "flag": "https://restcountries.eu/data/mmr.svg",
-            "currency": "Burmese kyat"
-        },
-        {
-            "name": "Namibia",
-            "capital": "Windhoek",
-            "languages": [
-                "English",
-                "Afrikaans"
-            ],
-            "population": 2324388,
-            "flag": "https://restcountries.eu/data/nam.svg",
-            "currency": "Namibian dollar"
-        },
-        {
-            "name": "Nauru",
-            "capital": "Yaren",
-            "languages": [
-                "English",
-                "Nauruan"
-            ],
-            "population": 10084,
-            "flag": "https://restcountries.eu/data/nru.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Nepal",
-            "capital": "Kathmandu",
-            "languages": [
-                "Nepali"
-            ],
-            "population": 28431500,
-            "flag": "https://restcountries.eu/data/npl.svg",
-            "currency": "Nepalese rupee"
-        },
-        {
-            "name": "Netherlands",
-            "capital": "Amsterdam",
-            "languages": [
-                "Dutch"
-            ],
-            "population": 17019800,
-            "flag": "https://restcountries.eu/data/nld.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "New Caledonia",
-            "capital": "Nouméa",
-            "languages": [
-                "French"
-            ],
-            "population": 268767,
-            "flag": "https://restcountries.eu/data/ncl.svg",
-            "currency": "CFP franc"
-        },
-        {
-            "name": "New Zealand",
-            "capital": "Wellington",
-            "languages": [
-                "English",
-                "Māori"
-            ],
-            "population": 4697854,
-            "flag": "https://restcountries.eu/data/nzl.svg",
-            "currency": "New Zealand dollar"
-        },
-        {
-            "name": "Nicaragua",
-            "capital": "Managua",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 6262703,
-            "flag": "https://restcountries.eu/data/nic.svg",
-            "currency": "Nicaraguan córdoba"
-        },
-        {
-            "name": "Niger",
-            "capital": "Niamey",
-            "languages": [
-                "French"
-            ],
-            "population": 20715000,
-            "flag": "https://restcountries.eu/data/ner.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Nigeria",
-            "capital": "Abuja",
-            "languages": [
-                "English"
-            ],
-            "population": 186988000,
-            "flag": "https://restcountries.eu/data/nga.svg",
-            "currency": "Nigerian naira"
-        },
-        {
-            "name": "Niue",
-            "capital": "Alofi",
-            "languages": [
-                "English"
-            ],
-            "population": 1470,
-            "flag": "https://restcountries.eu/data/niu.svg",
-            "currency": "New Zealand dollar"
-        },
-        {
-            "name": "Norfolk Island",
-            "capital": "Kingston",
-            "languages": [
-                "English"
-            ],
-            "population": 2302,
-            "flag": "https://restcountries.eu/data/nfk.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Korea (Democratic People's Republic of)",
-            "capital": "Pyongyang",
-            "languages": [
-                "Korean"
-            ],
-            "population": 25281000,
-            "flag": "https://restcountries.eu/data/prk.svg",
-            "currency": "North Korean won"
-        },
-        {
-            "name": "Northern Mariana Islands",
-            "capital": "Saipan",
-            "languages": [
-                "English",
-                "Chamorro"
-            ],
-            "population": 56940,
-            "flag": "https://restcountries.eu/data/mnp.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Norway",
-            "capital": "Oslo",
-            "languages": [
-                "Norwegian",
-                "Norwegian Bokmål",
-                "Norwegian Nynorsk"
-            ],
-            "population": 5223256,
-            "flag": "https://restcountries.eu/data/nor.svg",
-            "currency": "Norwegian krone"
-        },
-        {
-            "name": "Oman",
-            "capital": "Muscat",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 4420133,
-            "flag": "https://restcountries.eu/data/omn.svg",
-            "currency": "Omani rial"
-        },
-        {
-            "name": "Pakistan",
-            "capital": "Islamabad",
-            "languages": [
-                "English",
-                "Urdu"
-            ],
-            "population": 194125062,
-            "flag": "https://restcountries.eu/data/pak.svg",
-            "currency": "Pakistani rupee"
-        },
-        {
-            "name": "Palau",
-            "capital": "Ngerulmud",
-            "languages": [
-                "English"
-            ],
-            "population": 17950,
-            "flag": "https://restcountries.eu/data/plw.svg",
-            "currency": "[E]"
-        },
-        {
-            "name": "Palestine, State of",
-            "capital": "Ramallah",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 4682467,
-            "flag": "https://restcountries.eu/data/pse.svg",
-            "currency": "Israeli new sheqel"
-        },
-        {
-            "name": "Panama",
-            "capital": "Panama City",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 3814672,
-            "flag": "https://restcountries.eu/data/pan.svg",
-            "currency": "Panamanian balboa"
-        },
-        {
-            "name": "Papua New Guinea",
-            "capital": "Port Moresby",
-            "languages": [
-                "English"
-            ],
-            "population": 8083700,
-            "flag": "https://restcountries.eu/data/png.svg",
-            "currency": "Papua New Guinean kina"
-        },
-        {
-            "name": "Paraguay",
-            "capital": "Asunción",
-            "languages": [
-                "Spanish",
-                "Guaraní"
-            ],
-            "population": 6854536,
-            "flag": "https://restcountries.eu/data/pry.svg",
-            "currency": "Paraguayan guaraní"
-        },
-        {
-            "name": "Peru",
-            "capital": "Lima",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 31488700,
-            "flag": "https://restcountries.eu/data/per.svg",
-            "currency": "Peruvian sol"
-        },
-        {
-            "name": "Philippines",
-            "capital": "Manila",
-            "languages": [
-                "English"
-            ],
-            "population": 103279800,
-            "flag": "https://restcountries.eu/data/phl.svg",
-            "currency": "Philippine peso"
-        },
-        {
-            "name": "Pitcairn",
-            "capital": "Adamstown",
-            "languages": [
-                "English"
-            ],
-            "population": 56,
-            "flag": "https://restcountries.eu/data/pcn.svg",
-            "currency": "New Zealand dollar"
-        },
-        {
-            "name": "Poland",
-            "capital": "Warsaw",
-            "languages": [
-                "Polish"
-            ],
-            "population": 38437239,
-            "flag": "https://restcountries.eu/data/pol.svg",
-            "currency": "Polish złoty"
-        },
-        {
-            "name": "Portugal",
-            "capital": "Lisbon",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 10374822,
-            "flag": "https://restcountries.eu/data/prt.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Puerto Rico",
-            "capital": "San Juan",
-            "languages": [
-                "Spanish",
-                "English"
-            ],
-            "population": 3474182,
-            "flag": "https://restcountries.eu/data/pri.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Qatar",
-            "capital": "Doha",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 2587564,
-            "flag": "https://restcountries.eu/data/qat.svg",
-            "currency": "Qatari riyal"
-        },
-        {
-            "name": "Republic of Kosovo",
-            "capital": "Pristina",
-            "languages": [
-                "Albanian",
-                "Serbian"
-            ],
-            "population": 1733842,
-            "flag": "https://restcountries.eu/data/kos.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Réunion",
-            "capital": "Saint-Denis",
-            "languages": [
-                "French"
-            ],
-            "population": 840974,
-            "flag": "https://restcountries.eu/data/reu.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Romania",
-            "capital": "Bucharest",
-            "languages": [
-                "Romanian"
-            ],
-            "population": 19861408,
-            "flag": "https://restcountries.eu/data/rou.svg",
-            "currency": "Romanian leu"
-        },
-        {
-            "name": "Russian Federation",
-            "capital": "Moscow",
-            "languages": [
-                "Russian"
-            ],
-            "population": 146599183,
-            "flag": "https://restcountries.eu/data/rus.svg",
-            "currency": "Russian ruble"
-        },
-        {
-            "name": "Rwanda",
-            "capital": "Kigali",
-            "languages": [
-                "Kinyarwanda",
-                "English",
-                "French"
-            ],
-            "population": 11553188,
-            "flag": "https://restcountries.eu/data/rwa.svg",
-            "currency": "Rwandan franc"
-        },
-        {
-            "name": "Saint Barthélemy",
-            "capital": "Gustavia",
-            "languages": [
-                "French"
-            ],
-            "population": 9417,
-            "flag": "https://restcountries.eu/data/blm.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Saint Helena, Ascension and Tristan da Cunha",
-            "capital": "Jamestown",
-            "languages": [
-                "English"
-            ],
-            "population": 4255,
-            "flag": "https://restcountries.eu/data/shn.svg",
-            "currency": "Saint Helena pound"
-        },
-        {
-            "name": "Saint Kitts and Nevis",
-            "capital": "Basseterre",
-            "languages": [
-                "English"
-            ],
-            "population": 46204,
-            "flag": "https://restcountries.eu/data/kna.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Saint Lucia",
-            "capital": "Castries",
-            "languages": [
-                "English"
-            ],
-            "population": 186000,
-            "flag": "https://restcountries.eu/data/lca.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Saint Martin (French part)",
-            "capital": "Marigot",
-            "languages": [
-                "English",
-                "French",
-                "Dutch"
-            ],
-            "population": 36979,
-            "flag": "https://restcountries.eu/data/maf.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Saint Pierre and Miquelon",
-            "capital": "Saint-Pierre",
-            "languages": [
-                "French"
-            ],
-            "population": 6069,
-            "flag": "https://restcountries.eu/data/spm.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Saint Vincent and the Grenadines",
-            "capital": "Kingstown",
-            "languages": [
-                "English"
-            ],
-            "population": 109991,
-            "flag": "https://restcountries.eu/data/vct.svg",
-            "currency": "East Caribbean dollar"
-        },
-        {
-            "name": "Samoa",
-            "capital": "Apia",
-            "languages": [
-                "Samoan",
-                "English"
-            ],
-            "population": 194899,
-            "flag": "https://restcountries.eu/data/wsm.svg",
-            "currency": "Samoan tālā"
-        },
-        {
-            "name": "San Marino",
-            "capital": "City of San Marino",
-            "languages": [
-                "Italian"
-            ],
-            "population": 33005,
-            "flag": "https://restcountries.eu/data/smr.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Sao Tome and Principe",
-            "capital": "São Tomé",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 187356,
-            "flag": "https://restcountries.eu/data/stp.svg",
-            "currency": "São Tomé and Príncipe dobra"
-        },
-        {
-            "name": "Saudi Arabia",
-            "capital": "Riyadh",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 32248200,
-            "flag": "https://restcountries.eu/data/sau.svg",
-            "currency": "Saudi riyal"
-        },
-        {
-            "name": "Senegal",
-            "capital": "Dakar",
-            "languages": [
-                "French"
-            ],
-            "population": 14799859,
-            "flag": "https://restcountries.eu/data/sen.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Serbia",
-            "capital": "Belgrade",
-            "languages": [
-                "Serbian"
-            ],
-            "population": 7076372,
-            "flag": "https://restcountries.eu/data/srb.svg",
-            "currency": "Serbian dinar"
-        },
-        {
-            "name": "Seychelles",
-            "capital": "Victoria",
-            "languages": [
-                "French",
-                "English"
-            ],
-            "population": 91400,
-            "flag": "https://restcountries.eu/data/syc.svg",
-            "currency": "Seychellois rupee"
-        },
-        {
-            "name": "Sierra Leone",
-            "capital": "Freetown",
-            "languages": [
-                "English"
-            ],
-            "population": 7075641,
-            "flag": "https://restcountries.eu/data/sle.svg",
-            "currency": "Sierra Leonean leone"
-        },
-        {
-            "name": "Singapore",
-            "capital": "Singapore",
-            "languages": [
-                "English",
-                "Malay",
-                "Tamil",
-                "Chinese"
-            ],
-            "population": 5535000,
-            "flag": "https://restcountries.eu/data/sgp.svg",
-            "currency": "Brunei dollar"
-        },
-        {
-            "name": "Sint Maarten (Dutch part)",
-            "capital": "Philipsburg",
-            "languages": [
-                "Dutch",
-                "English"
-            ],
-            "population": 38247,
-            "flag": "https://restcountries.eu/data/sxm.svg",
-            "currency": "Netherlands Antillean guilder"
-        },
-        {
-            "name": "Slovakia",
-            "capital": "Bratislava",
-            "languages": [
-                "Slovak"
-            ],
-            "population": 5426252,
-            "flag": "https://restcountries.eu/data/svk.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Slovenia",
-            "capital": "Ljubljana",
-            "languages": [
-                "Slovene"
-            ],
-            "population": 2064188,
-            "flag": "https://restcountries.eu/data/svn.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Solomon Islands",
-            "capital": "Honiara",
-            "languages": [
-                "English"
-            ],
-            "population": 642000,
-            "flag": "https://restcountries.eu/data/slb.svg",
-            "currency": "Solomon Islands dollar"
-        },
-        {
-            "name": "Somalia",
-            "capital": "Mogadishu",
-            "languages": [
-                "Somali",
-                "Arabic"
-            ],
-            "population": 11079000,
-            "flag": "https://restcountries.eu/data/som.svg",
-            "currency": "Somali shilling"
-        },
-        {
-            "name": "South Africa",
-            "capital": "Pretoria",
-            "languages": [
-                "Afrikaans",
-                "English",
-                "Southern Ndebele",
-                "Southern Sotho",
-                "Swati",
-                "Tswana",
-                "Tsonga",
-                "Venda",
-                "Xhosa",
-                "Zulu"
-            ],
-            "population": 55653654,
-            "flag": "https://restcountries.eu/data/zaf.svg",
-            "currency": "South African rand"
-        },
-        {
-            "name": "South Georgia and the South Sandwich Islands",
-            "capital": "King Edward Point",
-            "languages": [
-                "English"
-            ],
-            "population": 30,
-            "flag": "https://restcountries.eu/data/sgs.svg",
-            "currency": "British pound"
-        },
-        {
-            "name": "Korea (Republic of)",
-            "capital": "Seoul",
-            "languages": [
-                "Korean"
-            ],
-            "population": 50801405,
-            "flag": "https://restcountries.eu/data/kor.svg",
-            "currency": "South Korean won"
-        },
-        {
-            "name": "South Sudan",
-            "capital": "Juba",
-            "languages": [
-                "English"
-            ],
-            "population": 12131000,
-            "flag": "https://restcountries.eu/data/ssd.svg",
-            "currency": "South Sudanese pound"
-        },
-        {
-            "name": "Spain",
-            "capital": "Madrid",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 46438422,
-            "flag": "https://restcountries.eu/data/esp.svg",
-            "currency": "Euro"
-        },
-        {
-            "name": "Sri Lanka",
-            "capital": "Colombo",
-            "languages": [
-                "Sinhalese",
-                "Tamil"
-            ],
-            "population": 20966000,
-            "flag": "https://restcountries.eu/data/lka.svg",
-            "currency": "Sri Lankan rupee"
-        },
-        {
-            "name": "Sudan",
-            "capital": "Khartoum",
-            "languages": [
-                "Arabic",
-                "English"
-            ],
-            "population": 39598700,
-            "flag": "https://restcountries.eu/data/sdn.svg",
-            "currency": "Sudanese pound"
-        },
-        {
-            "name": "Suriname",
-            "capital": "Paramaribo",
-            "languages": [
-                "Dutch"
-            ],
-            "population": 541638,
-            "flag": "https://restcountries.eu/data/sur.svg",
-            "currency": "Surinamese dollar"
-        },
-        {
-            "name": "Svalbard and Jan Mayen",
-            "capital": "Longyearbyen",
-            "languages": [
-                "Norwegian"
-            ],
-            "population": 2562,
-            "flag": "https://restcountries.eu/data/sjm.svg",
-            "currency": "Norwegian krone"
-        },
-        {
-            "name": "Swaziland",
-            "capital": "Lobamba",
-            "languages": [
-                "English",
-                "Swati"
-            ],
-            "population": 1132657,
-            "flag": "https://restcountries.eu/data/swz.svg",
-            "currency": "Swazi lilangeni"
-        },
-        {
-            "name": "Sweden",
-            "capital": "Stockholm",
-            "languages": [
-                "Swedish"
-            ],
-            "population": 9894888,
-            "flag": "https://restcountries.eu/data/swe.svg",
-            "currency": "Swedish krona"
-        },
-        {
-            "name": "Switzerland",
-            "capital": "Bern",
-            "languages": [
-                "German",
-                "French",
-                "Italian"
-            ],
-            "population": 8341600,
-            "flag": "https://restcountries.eu/data/che.svg",
-            "currency": "Swiss franc"
-        },
-        {
-            "name": "Syrian Arab Republic",
-            "capital": "Damascus",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 18564000,
-            "flag": "https://restcountries.eu/data/syr.svg",
-            "currency": "Syrian pound"
-        },
-        {
-            "name": "Taiwan",
-            "capital": "Taipei",
-            "languages": [
-                "Chinese"
-            ],
-            "population": 23503349,
-            "flag": "https://restcountries.eu/data/twn.svg",
-            "currency": "New Taiwan dollar"
-        },
-        {
-            "name": "Tajikistan",
-            "capital": "Dushanbe",
-            "languages": [
-                "Tajik",
-                "Russian"
-            ],
-            "population": 8593600,
-            "flag": "https://restcountries.eu/data/tjk.svg",
-            "currency": "Tajikistani somoni"
-        },
-        {
-            "name": "Tanzania, United Republic of",
-            "capital": "Dodoma",
-            "languages": [
-                "Swahili",
-                "English"
-            ],
-            "population": 55155000,
-            "flag": "https://restcountries.eu/data/tza.svg",
-            "currency": "Tanzanian shilling"
-        },
-        {
-            "name": "Thailand",
-            "capital": "Bangkok",
-            "languages": [
-                "Thai"
-            ],
-            "population": 65327652,
-            "flag": "https://restcountries.eu/data/tha.svg",
-            "currency": "Thai baht"
-        },
-        {
-            "name": "Timor-Leste",
-            "capital": "Dili",
-            "languages": [
-                "Portuguese"
-            ],
-            "population": 1167242,
-            "flag": "https://restcountries.eu/data/tls.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Togo",
-            "capital": "Lomé",
-            "languages": [
-                "French"
-            ],
-            "population": 7143000,
-            "flag": "https://restcountries.eu/data/tgo.svg",
-            "currency": "West African CFA franc"
-        },
-        {
-            "name": "Tokelau",
-            "capital": "Fakaofo",
-            "languages": [
-                "English"
-            ],
-            "population": 1411,
-            "flag": "https://restcountries.eu/data/tkl.svg",
-            "currency": "New Zealand dollar"
-        },
-        {
-            "name": "Tonga",
-            "capital": "Nuku'alofa",
-            "languages": [
-                "English",
-                "Tonga (Tonga Islands)"
-            ],
-            "population": 103252,
-            "flag": "https://restcountries.eu/data/ton.svg",
-            "currency": "Tongan paʻanga"
-        },
-        {
-            "name": "Trinidad and Tobago",
-            "capital": "Port of Spain",
-            "languages": [
-                "English"
-            ],
-            "population": 1349667,
-            "flag": "https://restcountries.eu/data/tto.svg",
-            "currency": "Trinidad and Tobago dollar"
-        },
-        {
-            "name": "Tunisia",
-            "capital": "Tunis",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 11154400,
-            "flag": "https://restcountries.eu/data/tun.svg",
-            "currency": "Tunisian dinar"
-        },
-        {
-            "name": "Turkey",
-            "capital": "Ankara",
-            "languages": [
-                "Turkish"
-            ],
-            "population": 78741053,
-            "flag": "https://restcountries.eu/data/tur.svg",
-            "currency": "Turkish lira"
-        },
-        {
-            "name": "Turkmenistan",
-            "capital": "Ashgabat",
-            "languages": [
-                "Turkmen",
-                "Russian"
-            ],
-            "population": 4751120,
-            "flag": "https://restcountries.eu/data/tkm.svg",
-            "currency": "Turkmenistan manat"
-        },
-        {
-            "name": "Turks and Caicos Islands",
-            "capital": "Cockburn Town",
-            "languages": [
-                "English"
-            ],
-            "population": 31458,
-            "flag": "https://restcountries.eu/data/tca.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Tuvalu",
-            "capital": "Funafuti",
-            "languages": [
-                "English"
-            ],
-            "population": 10640,
-            "flag": "https://restcountries.eu/data/tuv.svg",
-            "currency": "Australian dollar"
-        },
-        {
-            "name": "Uganda",
-            "capital": "Kampala",
-            "languages": [
-                "English",
-                "Swahili"
-            ],
-            "population": 33860700,
-            "flag": "https://restcountries.eu/data/uga.svg",
-            "currency": "Ugandan shilling"
-        },
-        {
-            "name": "Ukraine",
-            "capital": "Kiev",
-            "languages": [
-                "Ukrainian"
-            ],
-            "population": 42692393,
-            "flag": "https://restcountries.eu/data/ukr.svg",
-            "currency": "Ukrainian hryvnia"
-        },
-        {
-            "name": "United Arab Emirates",
-            "capital": "Abu Dhabi",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 9856000,
-            "flag": "https://restcountries.eu/data/are.svg",
-            "currency": "United Arab Emirates dirham"
-        },
-        {
-            "name": "United Kingdom of Great Britain and Northern Ireland",
-            "capital": "London",
-            "languages": [
-                "English"
-            ],
-            "population": 65110000,
-            "flag": "https://restcountries.eu/data/gbr.svg",
-            "currency": "British pound"
-        },
-        {
-            "name": "United States of America",
-            "capital": "Washington, D.C.",
-            "languages": [
-                "English"
-            ],
-            "population": 323947000,
-            "flag": "https://restcountries.eu/data/usa.svg",
-            "currency": "United States dollar"
-        },
-        {
-            "name": "Uruguay",
-            "capital": "Montevideo",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 3480222,
-            "flag": "https://restcountries.eu/data/ury.svg",
-            "currency": "Uruguayan peso"
-        },
-        {
-            "name": "Uzbekistan",
-            "capital": "Tashkent",
-            "languages": [
-                "Uzbek",
-                "Russian"
-            ],
-            "population": 31576400,
-            "flag": "https://restcountries.eu/data/uzb.svg",
-            "currency": "Uzbekistani so'm"
-        },
-        {
-            "name": "Vanuatu",
-            "capital": "Port Vila",
-            "languages": [
-                "Bislama",
-                "English",
-                "French"
-            ],
-            "population": 277500,
-            "flag": "https://restcountries.eu/data/vut.svg",
-            "currency": "Vanuatu vatu"
-        },
-        {
-            "name": "Venezuela (Bolivarian Republic of)",
-            "capital": "Caracas",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 31028700,
-            "flag": "https://restcountries.eu/data/ven.svg",
-            "currency": "Venezuelan bolívar"
-        },
-        {
-            "name": "Viet Nam",
-            "capital": "Hanoi",
-            "languages": [
-                "Vietnamese"
-            ],
-            "population": 92700000,
-            "flag": "https://restcountries.eu/data/vnm.svg",
-            "currency": "Vietnamese đồng"
-        },
-        {
-            "name": "Wallis and Futuna",
-            "capital": "Mata-Utu",
-            "languages": [
-                "French"
-            ],
-            "population": 11750,
-            "flag": "https://restcountries.eu/data/wlf.svg",
-            "currency": "CFP franc"
-        },
-        {
-            "name": "Western Sahara",
-            "capital": "El Aaiún",
-            "languages": [
-                "Spanish"
-            ],
-            "population": 510713,
-            "flag": "https://restcountries.eu/data/esh.svg",
-            "currency": "Moroccan dirham"
-        },
-        {
-            "name": "Yemen",
-            "capital": "Sana'a",
-            "languages": [
-                "Arabic"
-            ],
-            "population": 27478000,
-            "flag": "https://restcountries.eu/data/yem.svg",
-            "currency": "Yemeni rial"
-        },
-        {
-            "name": "Zambia",
-            "capital": "Lusaka",
-            "languages": [
-                "English"
-            ],
-            "population": 15933883,
-            "flag": "https://restcountries.eu/data/zmb.svg",
-            "currency": "Zambian kwacha"
-        },
-        {
-            "name": "Zimbabwe",
-            "capital": "Harare",
-            "languages": [
-                "English",
-                "Shona",
-                "Northern Ndebele"
-            ],
-            "population": 14240168,
-            "flag": "https://restcountries.eu/data/zwe.svg",
-            "currency": "Botswana pula"
-        }
-    ]
+
     def most_spoken_langs_most_populous():
         countrylist=[]
         langlist=[]
@@ -3721,6 +925,7 @@ class day10:
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_11/level1.py -->
 ```py
 def sum(a,b):
     return a+b
@@ -3799,131 +1004,1011 @@ print(func15(10))
 ## File - `30-days-python-asabeneh/day_11/level3.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/level3.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_11/level3.py -->
+```py
+# import multiprocessing from mp
+
+# def __init__:
+
+def is_prime(num):
+    if(num==2):
+        print("Prime Number")
+    elif(num):
+        for i in range(2,num):
+            if(num%i==0):
+                print("Not Prime Number")
+                break
+        else:
+            print("Prime Number")
+
+# is_prime(20000000000000000000000000000000000000000000000000456678977777987777777777777779466666666666666666666666333333333333333333333333333333333333333333335714389)
+
+def check_list(list1):
+    s1=set(list1)
+    l1=len(list1)
+    l2=len(s1)
+    if(l1==l2):
+        print("list is unique")
+    else:
+        print("list ain't unique")
+
+# check_list([1,2,3,3,4,5,6,7,8,9,10])
+
+def checkdt(list1):
+    for i in range(len(list1)-1):
+        a=type(list1[i])
+        if(a==type(list1[i+1])):
+            if(i==len(list1)-1):
+                print("All elements are of same type")
+            pass
+        else:
+            print("All elements are not of same type")
+            break
+# checkdt([1,2,3,'alex'])
+    
+def varname():
+    var = input("Enter the variable name:\n")
+    if var[0].isnumeric():  # Check if the first character is a number
+        print("Variable name is invalid")
+        return
+    for char in var:  # Iterate through each character in the variable name
+        if not (char.isalnum() or char == '_'):  # Only alphanumeric and underscore are valid
+            print("Variable name is invalid")
+            return
+    print("Variable name is valid")
+
+varname()
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_11/taylor_expansion.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_11/taylor_expansion.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_11/taylor_expansion.py -->
+```py
+import math
+
+
+def taylor_expansion(f, a, x, terms):
+    """
+    Computes the Taylor series expansion of a function f around x = a up to the given number of terms.
+
+    Parameters:
+    - f: Function that returns the nth derivative of f at a.
+    - a: Point around which the series is expanded.
+    - x: Value at which the series is evaluated.
+    - terms: Number of terms to sum in the series.
+
+    Returns:
+    - Approximation of f(x) using Taylor series.
+    """
+    taylor_sum = 0
+    for n in range(terms):
+        derivative_n = f(a, n)  # Compute nth derivative at a
+        term = (derivative_n / math.factorial(n)) * (x - a) ** n
+        taylor_sum += term
+    return taylor_sum
+
+
+# Example function: cos(x)
+def cos_derivative(a, n):
+    """Returns the nth derivative of cos(x) evaluated at x = a."""
+    derivatives = [math.cos, math.sin, lambda x: -math.cos(x), lambda x: -math.sin(x)]
+    return derivatives[n % 4](a)
+
+
+# Compute the Taylor series approximation of cos(x) at x = 0.5 using 6 terms
+# x = 0.5  # 28.6479 degrees
+x = 1  # 57.2958 degrees
+# x = 10_000
+a = 0  # Maclaurin series
+terms = 6
+approx_value = taylor_expansion(cos_derivative, a, x, terms)
+
+print(f"Taylor series approximation of cos({x}) using {terms} terms: {approx_value}")
+print(f"Actual cos({x}): {math.cos(x)}")
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_12/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level1.py -->
+```py
+import numpy as np
+from scipy import optimize
+from random import *
+def is_prime(num):
+    """Check if a number is prime."""
+    if num < 2:
+        return False
+    for i in range(2, int(np.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
 
+def find_primes_in_range(start, end):
+    """Find all prime numbers in a given range."""
+    primes = []
+    for num in range(start, end + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+# if __name__ == "__main__":
+#     start = 10
+#     end = 50
+#     primes = find_primes_in_range(start, end)
+#     print(f"Prime numbers between {start} and {end}: {primes}")
+
+def a():
+    asciis=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    r=randint(0,9)
+    s=asciis[randint(0,51)]
+    t=asciis[randint(0,51)]
+    u=randint(0,9)
+    v=asciis[randint(0,51)]
+    return f'{r}{s}{t}{u}{v}'
+
+# print(a())
+
+listOfChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# a,b=map(int, input("Enter the length and number of Ids").split())
+# r=''
+# for i in range(b):
+#     for j in range(a):
+#         r+=str(listOfChars[randint(0,61)])
+#     print(r)
+#     r=''
+# print(r)
+
+def rgbcolorgen():
+    return f'rgb({randint(0,255),randint(0,255),randint(0,255)})'
+# print(rgbcolorgen())
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_12/level2.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level2.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level2.py -->
+```py
+from random import randint
+def hexcodegen(n):
+    list1=['A','B','C','D','F','E']
+    list2=['0','1','2','3','4','5','6','7','8','9']
+    r=''
+    for i in range(0,n):
+        for j in range(0,3):
+            r+=list1[randint(0,5)]+list2[randint(0,9)]
+        print(r)
+        r=''
+    return r
 
+# print(hexcodegen(5))
+# f0f0f0
+
+def list_of_rgb_colors(n):
+    # i=int(input("Enter the number of colors"))
+    list1=[]
+    for j in range(n):
+        r=f'rgb({randint(0,255)},{randint(0,255)},{randint(0,255)})'
+        print(r)
+        list1.append(r)
+    return list1
+# print(list_of_rgb_colors())
+
+def generate_colors():
+    # i=int()
+    k,j=map(int, input("Enter the number of colors and hex colors").split())
+    hexcodegen(k)
+    list_of_rgb_colors(j)
+generate_colors()
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_12/level3.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level3.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level3.py -->
+```py
+import random
+from random import randint
+def shuffle_the_list():
+    # Exercise 1: shuffle the list
+    list1 = ["a", "b", "c", "d", "e", "f"]
+    # Learn: `random.shuffle` mutates the original array
+    random.shuffle(list1)
+    return list1
 
+# Exercise 2: Write a function which returns an array of seven random numbers in a range of 0-9. All the numbers must be unique.
+def seven_random_numbers():
+    set1 = set()
+
+    while len(set1) < 7:
+        set1.add(randint(0, 9))
+    print(set1)
+    list1 = list(set1)
+    print(list1)
+
+# print(shuffle_the_list())
+
+# list_anon=[1,2,3,4,5,6,7,8,9,10]
+# list_anon[randint(0,9)],list_anon[randint(0,9)]=list_anon[randint(0,9)],list_anon[randint(0,9)]
+# print(list_anon)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_12/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_12/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_12/level1.py -->
+```py
+import numpy as np
+from scipy import optimize
+from random import *
+def is_prime(num):
+    """Check if a number is prime."""
+    if num < 2:
+        return False
+    for i in range(2, int(np.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
 
+def find_primes_in_range(start, end):
+    """Find all prime numbers in a given range."""
+    primes = []
+    for num in range(start, end + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+# if __name__ == "__main__":
+#     start = 10
+#     end = 50
+#     primes = find_primes_in_range(start, end)
+#     print(f"Prime numbers between {start} and {end}: {primes}")
+
+def a():
+    asciis=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    r=randint(0,9)
+    s=asciis[randint(0,51)]
+    t=asciis[randint(0,51)]
+    u=randint(0,9)
+    v=asciis[randint(0,51)]
+    return f'{r}{s}{t}{u}{v}'
+
+# print(a())
+
+listOfChars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# a,b=map(int, input("Enter the length and number of Ids").split())
+# r=''
+# for i in range(b):
+#     for j in range(a):
+#         r+=str(listOfChars[randint(0,61)])
+#     print(r)
+#     r=''
+# print(r)
+
+def rgbcolorgen():
+    return f'rgb({randint(0,255),randint(0,255),randint(0,255)})'
+# print(rgbcolorgen())
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_13/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_13/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_13/level1.py -->
+```py
+#Heard about comprehension let's see what's List Comprehension
+def negative_integers():
+    list1=[-4,-3,-2,-1,0,2,4,6]
+
+    list2=[i for i in list1 if i<=0]
+
+    list3=[i for i in list1 if i==0]
+
+    return list2
+
+def fourD_lists():
+    list_of_lists =[[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]]]
+    list1=[item for sublist1 in list_of_lists for sublist2 in sublist1 for item in sublist2]
+    return list1
+# print(flatten())
+
+def series():
+    list1=[
+        (item**1,item**0,item**1, item**2, item**3, item**4, item**5)
+        for item in range(11) 
+        ]
+    return list1
+# print(series())
+
+def formatted_country():
+    countries=[
+        [
+            ("Finland", "Helsinki"),
+            ("Sweden", "Stockholm"),
+            ("Norway", "Oslo")
+        ]
+    ]
+    list=[
+        [country,country[0:3],capital]
+        for outer in countries
+        # for inner in outer
+        for (country,capital) in outer
+            ]
+    return list
+# print(formatted_country())
+#TypeError: 'str' object is not callable
+
+def list_of_dictionaries():
+    countries=[
+        [
+            ("Finland", "Helsinki"),
+            ("Sweden", "Stockholm"),
+            ("Norway", "Oslo")
+        ]
+    ]
+    lists=[
+        {"country":country.upper(),
+         "city":capital.upper()
+         }
+         for inner in countries
+         for (country,capital) in inner
+         ]
+    return lists
+# print(list_of_dictionaries())
+def concatenation():
+    names=[
+        [
+            ("Asabeneh", "Yetayeh"),
+            ("David", "Smith"),
+            ("Donald", "Trump")
+        ]
+    ]
+    listnew=[
+        first+''+last
+        for outer in names
+        for first,last in outer
+    ]
+    return listnew
+# print(concatenation())
+y= lambda m,x,c: m*x+c
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_14/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14/level1.py -->
+```py
+print("------------------------ 1")
+
+
+# * Mimicing decorator functionality via normal function:
+greeting = lambda: "Welcome to Python"
+
+
+def uppercase_decorator(function):
+    return lambda: function().upper()
+
+
+g = uppercase_decorator(greeting)
+print(g())  # WELCOME TO PYTHON
+
+print("------------------------ 2")
+
+## * Using decorators in python:
+# This decorator function is a higher order function that takes a function as a parameter
+
+
+def uppercase_decorator(function):
+    return lambda: function().upper()
+
+
+# & Learn: The reason is that the decorator syntax @decorator can only be used with function definitions (using def), not with lambda expressions.
+@uppercase_decorator
+def greeting():
+    return "Welcome to Python"
+
+
+print(greeting())  # WELCOME TO PYTHON
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_14/closure.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/level2.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14/level2.py -->
+```py
+from functools import reduce
+import os
+import json
+from pathlib import Path
+
+def readCountriesFromJsonFile():
+    dirname = os.path.dirname(os.path.dirname(__file__))
+    data_file = os.path.join(dirname, "data", "countries_data.json")
+
+    with open(data_file, "r") as f:
+        countries_data = json.load(f)
+    return countries_data
+
+
+# countries = readCountriesFromJsonFile()
+# print(countries)
+countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+
+def q1():
+    print(list(map(lambda x: x.upper(),countries)))
+# q1()
+
+def q2():
+    add=map(lambda x: x**2,numbers)
+    print(list(add))
+# q2()
+
+def q3():
+    print(list(map(lambda x: x.upper(),names)))
+# q3()
+
+def q4():
+    add=filter(lambda x: x.find('land')!=-1,countries)
+    print(list(add))
+# q4()
+
+def q5():
+    add=filter(lambda x: len(x)-1==6,countries)
+    print(list(add))
+# q5()
+
+def q6():
+    add=filter(lambda x: len(x)-1>=6,countries)
+    print(list(add))
+q6()
+
+def q7():
+    address=filter(lambda text: text.startswith('E'),countries)
+    print(list(address))
+# q7()
+def q8():
+    sqnum=map(lambda x: x**2, [i for i in range(10)])
+    check_even=filter(lambda x: x%2==0,list(sqnum))
+    print(list(check_even))
+#q8()
+def string_list_items(list1):
+    str1=map(lambda x:x,list1)
+    print(list(str1))
+# string_list_items(['a','b','c','d','e','f','g','h','i','j'])
+
+def reduce1():
+    numbers=[1,2,3,4,5,6,7,8,9,10]
+    sum= reduce(lambda x,y: x+y,numbers)
+    print(sum)
+# reduce1()
+
+
+
+def joinCountriesProperly(accumulator, current):
+    isLastElement = current == countries[-1]
+    if isLastElement:
+        return accumulator + ", and " + current
+    return accumulator + ", " + current
+
+# print(reduce(joinCountriesProperly, countries) + " are north European countries")
+# Estonia,Finland,Sweden,Denmark,Norway,Iceland
+# def 
+
+def similiar(c):
+    # print(c[0]['name'])
+    add=filter(lambda item: item['name'].find('ia')!=-1,c)
+    print(list(add))
+# similiar(countries)
+
+def get_first_ten_countries():
+    for i in range(10):
+        print(countries[i]['name'])
+# get_first_ten_countries()
+
+def get_last_ten_countries():
+    for i in range(-1,-11,-1):
+        print(countries[i]['name'])
+# get_last_ten_countries()
+# print(countries)
+
+def get_first_letter_count(country_list):
+    dictionary = {}
+    for country in country_list:
+        firstLetterOfCountry = country['name'][0]
+        # & Learn: We use `dictionary.get()` method because if we use dictionary["someBadKey"] then we get exception ---  `KeyError: 'bad_key'`
+        dictionary[firstLetterOfCountry] = dictionary.get(firstLetterOfCountry, 0) + 1
+    return dictionary
+
+
+# print(get_first_letter_count(countries))
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_14/level3.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/level3.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14/level3.py -->
+```py
+# Use the countries_data.py (https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/countries-data.py) file and follow the tasks below:
+
+#     Sort countries by name, by capital, by population
+#     Sort out the ten most spoken languages by location.
+#     Sort out the ten most populated countries.
+from functools import reduce
+import os
+import json
+from pathlib import Path
+
+def readCountriesFromJsonFile():
+    dirname = os.path.dirname(os.path.dirname(__file__))
+    data_file = os.path.join(dirname, "data", "countries_data.json")
+
+    with open(data_file, "r") as f:
+        countries_data = json.load(f)
+    return countries_data
+
+countries=readCountriesFromJsonFile()
+
+def sort_by_name():
+    list11 = map(lambda country: country.get('name', ''), countries)
+    print(list(list11).sort())
+# sort_by_name()
+
+def sort_by_capital():
+    list11 = map(lambda country: country.get('capital', ''), countries)
+    print(list(list11).sort())
+# sort_by_capital()
+
+def sort_by_population():
+    sorted_countries = sorted(countries, key=lambda country: country.get('population', 0), reverse=True)
+    result = list(map(lambda country: country.get('name', ''), sorted_countries))
+    for i in range(10):
+        print(result[i])
+sort_by_population()
+#Ten most populated countries
+# China
+# India
+# United States of America
+# Indonesia
+# Brazil
+# Pakistan
+# Nigeria
+# Bangladesh
+# Russian Federation
+# Japan
+
+# def sort_by_language():
+#     sorted_countries = sorted(countries, key=lambda country: country.get('languages', 0))
+#     result = list(map(lambda country: country.get('name', ''), sorted_countries))
+#     print(result)
+# sort_by_language()
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_14/filter.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/filter.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14/filter.py -->
+```py
+# The filter() function calls the specified function which returns boolean for each item of the specified iterable (list). It filters the items that satisfy the filtering criteria. It returns an iterator object. We can convert the iterator object to a list, tuple, or set.
+# Lets filter only even nubers
+numbers = [1, 2, 3, 4, 5]  # iterable
+
+even_numbers = filter(lambda num: num%2==0, numbers)
+#Warn if even_numbers directly printed it will give filter address object
+print(list(even_numbers))       # [2, 4]
+
+numbers = [1, 2, 3, 4, 5]  # iterable
+
+# def is_odd(num):
+#     if num % 2 != 0:
+#         return True
+#     return False
+
+odd_numbers = filter(lambda num: num%2 !=0, numbers)
+print(list(odd_numbers))       # [1, 3, 5]
+
+# Filter long name
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']  # iterable
+# def is_name_long(name):
+#     if len(name) > 7:
+#         return True
+#     return False
+
+long_names = filter(lambda name: len(name) > 7, names)
+print(list(long_names))         # ['Asabeneh']
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_14/decorator.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/decorator.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14/decorator.py -->
+```py
+#These decorator functions are higher order functions 
+# that take functions as parameters
+# Applying Multiple Decorators to a Single Function
+
+
+# First Decorator
+def uppercase_decorator(greetFn):
+    print("1 - uppercase_decorator body")
+    uppercaseFn = lambda: greetFn().upper()
+    return uppercaseFn
+
+
+# Second decorator
+def split_string_decorator(uppercaseFn):
+    print("2 - split_string_decorator body")
+    resultFn = lambda: uppercaseFn().split()
+    return resultFn
+
+
+@split_string_decorator  # * 2nd
+@uppercase_decorator  # * 1st
+def greeting():  # * 3rd
+    print("3 - greetingFunction body")
+    return "Welcome to Python"
+
+
+print(greeting())  # WELCOME TO PYTHON
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 ## File - `30-days-python-asabeneh/day_14/map,array,f.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_14/map,array,f.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_14/map,array,f.py -->
+```py
+# Map is a high order function that takes a function and iterable as a param
+#What actually map does is iterating over a list. For instance, it changes the names to upper case and returns a new list.
+numberlist = [1, 2, 3, 4, 5] # iterable
+def square(x):
+    return x ** 2
+numbers_squared = map(square, numberlist)
+print(list(numbers_squared))    # [1, 4, 9, 16, 25]
+# Lets apply it with a lambda function
+numbers_squared = map(lambda x : x ** 2, numberlist)
+# print(numbers_int) #Warn-- map address object gets printed
+print(list(numbers_squared))    # [1, 4, 9, 16, 25]
+
+numbers_str = ['1', '2', '3', '4', '5']  # iterable
+numbers_int = map(int, numbers_str)
+# print(numbers_int) #Warn-- map address object gets printed
+print(list(numbers_int))    # [1, 2, 3, 4, 5]
+
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']  # iterable
+
+
+# Let us apply it with a lambda function
+names_upper_cased = map(lambda name: name.upper(), names)
+# print(numbers_upper_cased) #Warn-- map address object gets printed
+print(list(names_upper_cased))    # ['ASABENEH', 'LIDIYA', 'ERMIAS', 'ABRAHAM']
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_15/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_15/level1.py) -->
-Day 15
-## What is `error`, `exception` and `exception handling` in python. Be concise. (ChatGPT)
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_15/level1.py -->
+```py
+#? from functools import reduction
+#* ImportError: cannot import name 'reduction' from 'functools'
 
-Error: An issue in the program's syntax or logic that causes it to fail. Errors can be syntax errors (e.g., SyntaxError) or runtime errors (e.g., NameError, TypeError).
+#? from maths import add, subtract, multiply, divide, square, cube, power, modulo
+# ?from math import 
+# #* wrong import *
+import math
+# * ModuleNotFoundError: No module named 'maths'
+def formatted_country():
+    countries=[
+        [
+            ("Finland", "Helsinki"),
+            ("Sweden", "Stockholm"),
+            ("Norway", "Oslo")
+        ]
+    ]
+    list=[
+        [country,country[0:3],capital]
+        for outer in countries
+        # for inner in outer
+        for (country,capital) in outer
+            ]
+    return list
+# print(formatted_country())
+#* TypeError: 'str' object is not callable in case of multiple for loops in list comprehension
 
-Exception: A type of runtime error that can be caught and handled using try-except blocks. Examples include ValueError, KeyError, and ZeroDivisionError.
-
-*Errors terminate the program if unhandled, while exceptions allow for controlled recovery.*
-
-**What is exception handling?**
-
-Exception handling in Python refers to the process of managing and responding to runtime errors (exceptions) to prevent program crashes. It involves using constructs like `try`, `except`, `else`, and `finally` to handle exceptions gracefully.
-
-Example:
-
-```python
+# print(food_stuff_li[0],food_stuff_li[1],food_stuff_li[-1],food_stuff_li[-2])
+# Output:
+# Fish Kebab Hari matar Chana
+# del food_stuff_tp
+# print(food_stuff_tp)
+# Output:
+#* NameError: name 'food_stuff_tp' is not defined. Did you mean: 'food_stuff_li'?
+nordic_countries = ('Denmark', 'Finland','Iceland', 'Norway', 'Sweden')
 try:
-    x = 10 / 0  # Potential exception
+    pass
+    # print(nordic_countries.index('India'))
+    # print('India' in nordic_countries)
+# Works for tuple as well as list, in and not in
+except ValueError:
+    pass
+    #? print("Doesn't exists")
+#* ValueError: tuple.index(x): x not in tuple
+#* IndentationError: expected an indented block after 'except' statement on line 32
+#? print 'hello world'
+#* SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+
+# ?print(age)
+
+#* NameError: name 'age' is not defined
+
+# print(nordic_countries[7])
+#* IndexError: tuple index out of range
+
+# ?print(math.pi)
+#* NameError: name 'math' is not defined
+#* ModuleError: No module named 'math' wrong import
+
+#? print(math.PI)
+#* AttributeError: module 'math' has no attribute 'PI'. Did you mean: 'pi'?
+
+#? users = {'name':'Asab', 'age':250, 'country':'Finland'}
+#? print(users['names'])
+#* KeyError: 'names'
+
+#?print(4+3+'')
+#* TypeError: unsupported operand type(s) for +: 'int' and 'str'
+a=3
+try:
+    for i in range(9):
+        print(a/i)
 except ZeroDivisionError:
-    print("Cannot divide by zero!")  # Handle the exception
-else:
-    print("No exceptions occurred.")  # Executes if no exceptions
-finally:
-    print("Execution complete.")  # Always executes
+     for i in range(9):
+        if(i!=0):
+            print(a/i)
+#* ZeroDivisionError: division by zero
+# 3.0
+# 1.5
+# 1.0
+# 0.75
+# 0.6
+# 0.5
+# 0.42857142857142855
+# 0.375
 ```
-
-This ensures the program continues running even when unexpected issues arise.
-
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_16/day_time.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_16/day_time.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_16/day_time.py -->
+```py
+from datetime import datetime,time,date,timedelta
+date_string = "5 December, 2019"
+print("date_string =", date_string)
+date_object = datetime.strptime(date_string, "%d %B, %Y")
+print("date_object =", date_object)
+
+# time(hour = 0, minute = 0, second = 0)
+a = time()
+print("a =", a)
+# time(hour, minute and second)
+b = time(10, 30, 50)
+print("b =", b)
+# time(hour, minute and second)
+c = time(hour=10, minute=30, second=50)
+print("c =", c)
+# time(hour, minute, second, microsecond)
+d = time(10, 30, 50, 200555)
+print("d =", d)
+
+# Jan Feb Mar Apr Jun Jul Aug Sep Oct Nov Dec
+# 31 28,29 31 30 31 30 31 31 30 31 30 31 days
+# 52 weeks
+# 365, 366 days 12 months
+# 52,53 Sat,Sun,Mon,Tue,Wed,Thu,Fri
+# 7 days in a week
+today = date(year=2019, month=12, day=5)
+new_year = date(year=2020, month=1, day=1)
+time_left_for_newyear = new_year - today
+# Time left for new year:  27 days, 0:00:00
+print('Time left for new year: ', time_left_for_newyear)
+
+t1 = datetime(year = 2019, month = 12, day = 5, hour = 0, minute = 59, second = 0)
+t2 = datetime(year = 2020, month = 1, day = 1, hour = 0, minute = 0, second = 0)
+diff = t2 - t1
+print('Time left for new year:', diff) # Time left for new year: 26 days, 23: 01: 00
+
+t1 = timedelta(weeks=12, days=10, hours=4, seconds=20)
+t2 = timedelta(days=7, hours=5, minutes=3, seconds=30)
+t3 = t1 - t2
+print("t3 =", t3)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_16/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_16/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_16/level1.py -->
+```py
+from datetime import datetime,date
+
+# datetimenow = datetime.now()
+# print(datetimenow)                      # 2021-07-08 07:34:46.549883
+# day = datetimenow.day                   # 8
+# month = datetimenow.month               # 7
+# year = datetimenow.year                 # 2021
+# hour = datetimenow.hour                 # 7
+# minute = datetimenow.minute             # 38
+# second = datetimenow.second
+# timestamp = datetimenow.timestamp()
+# print(day, month, year, hour, minute)
+# print('timestamp', timestamp)
+# print(f'{day}/{month}/{year}, {hour}:{minute}')  # 8/7/2021, 7:38
+
+# new_year = datetime(2020, 1, 1)
+# print(new_year)      # 2020-01-01 00:00:00
+# day = new_year.day
+# month = new_year.month
+# year = new_year.year
+# hour = new_year.hour
+# minute = new_year.minute
+# second = new_year.second
+# print(day, month, year, hour, minute) #1 1 2020 0 0
+# print(f'{day}/{month}/{year}, {hour}:{minute}')  # 1/1/2020, 0:0
+
+#? STRFTIME
+# # current date and time
+# now = datetime.now()
+# t = now.strftime("%H:%M:%S")
+# print("time:", t)
+# time_one = now.strftime("%m/%d/%Y, %H:%M:%S")
+# # mm/dd/YY H:M:S format
+# print("time one:", time_one)
+# time_two = now.strftime("%d/%m/%Y, %H:%M:%S")
+# # dd/mm/YY H:M:S format
+# print("time two:", time_two)
+
+#* STRPTIME
+
+now=datetime.now()
+# print(now)
+# day=now.day
+# month=now.month
+# second=now.second
+# year=now.year
+# hour=now.hour
+# minute=now.minute
+# timestamp=now.timestamp()
+# print('timestamp:',timestamp)
+# print(f'{day}/{month}/{year}, {hour}:{minute}:{second}')
+# # %m/%d/%Y, %H:%M:%S
+# date_object='December/5/2019, 20:25:10'
+# date_string=now.strftime('%B/%d/%Y, %H:%M:%S')
+# print(date_string)
+
+date_string='5 December, 2019'
+print("date_string =", date_string)
+date_object = datetime.strptime(date_string, "%d %B, %Y")
+print("date_object =", date_object)
+time_two = date_object.strftime("%d/%m/%Y, %H:%M:%S")
+print(time_two)
+
+# t1=date(year="2025",month="3",day="25")
+# t2=date(year="2026",month="1",day="1")
+# print(t2-t1)
+# TypeError: 'str' object cannot be interpreted as an integer
+t1=date(year=2025,month=3,day=25)
+t2=date(year=2026,month=1,day=1)
+# print(t2-t1)
+t3=date(year=1970,month=1,day=1)
+print(t3-t1)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_17/packing_unpacking.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/packing_unpack.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_17/packing_unpack.py -->
+```py
+# unpacking a list
+def sum_of_five_nums(a, b, c, d, e):
+    return a + b + c + d + e
+lst = [1, 2, 3, 4, 5]
+print(sum_of_five_nums(*lst))  # 15
 
+#* Using list for defining a range
+numbers = range(2, 7)  # normal call with separate arguments
+print(list(numbers)) # [2, 3, 4, 5, 6]
+args = [2, 7]
+numbers = range(*args)  # call with arguments unpacked from a list
+print(numbers)      # [2, 3, 4, 5,6]
+
+#* Unpacking a dictionary
+# Used in presenting data in a better way.
+def unpacking_person_info(name, country, city, age):
+    return f'{name} lives in {country}, {city}. He is {age} year old.'
+dct = {'name':'Asabeneh', 'country':'Finland', 'city':'Helsinki', 'age':250}
+print(unpacking_person_info(**dct)) # Asabeneh lives in Finland, Helsinki. He is 250 years old.
+
+#* Packing a list
+def sum_all(*args):
+    s = 0
+    for i in args:
+        s += i
+    return s
+print(sum_all(1, 2, 3))             # 6
+print(sum_all(1, 2, 3, 4, 5, 6, 7)) # 28
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_17/spreading_Enumeration.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/spreading_Enumeration.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_17/spreading_Enumeration.py -->
+```py
+# ? Similiar to spread(...) operator used in Javascript. Spread helps to unpack the elements of a list or a dictionary.Similiarly it unpacks all the key elements of the form.
+# lst_one = [1, 2, 3]
+# lst_two = [4, 5, 6, 7]
+# lst = [0, *lst_one, *lst_two]
+# print(lst)          # [0, 1, 2, 3, 4, 5, 6, 7]
+# country_lst_one = ['Finland', 'Sweden', 'Norway']
+# country_lst_two = ['Denmark', 'Iceland']
+# nordic_countries = [*country_lst_one, *country_lst_two]
+# print(nordic_countries)  # ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland']
+
+#* Enumerate
+countries = ['Finland', 'Sweden', 'Norway', 'Denmark', 'Iceland'] 
+for index, i in enumerate(countries):
+    # print('hi')
+    if(i == 'Finland'):
+        print(f'The country {i} has been found at index {index}')
+
+# for index, item in enumerate([20, 30, 40]):
+#     print(index, item)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_17/zip.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/zip.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_17/zip.py -->
+```py
+# * Making a dictionary with two lists using zip
+fruits = ['banana', 'orange', 'mango', 'lemon', 'lime']                    
+vegetables = ['Tomato', 'Potato', 'Cabbage','Onion', 'Carrot']
+fruits_and_veges = []
+for f, v in zip(fruits, vegetables):
+    fruits_and_veges.append({'fruit':f, 'veg':v})
+
+print(fruits_and_veges)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_17/level.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_17/level.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_17/level.py -->
+```py
+names = ['Finland', 'Sweden', 'Norway','Denmark','Iceland', 'Estonia','Russia']
+# es=['Estonia']
+# rs=['Russia']
+*countries,es,rs=names
+# countries=[]
+# args=[0,6]
+# for i in range(5):
+#     countries.append(names[i])
+    
+print(countries)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
