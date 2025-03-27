@@ -1789,6 +1789,8 @@ except ZeroDivisionError:
 # 0.5
 # 0.42857142857142855
 # 0.375
+# TypeError: __main__.unpacking_country_info() argument after ** must be a mapping, not list
+# Expecting a dictionary
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
@@ -1917,6 +1919,8 @@ t2=date(year=2026,month=1,day=1)
 # print(t2-t1)
 t3=date(year=1970,month=1,day=1)
 print(t3-t1)
+
+# TypeError: __main__.unpacking_country_info() argument after ** must be a mapping, not list
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
@@ -2151,7 +2155,7 @@ def most_frequent_words(paragraph):
     r = re.split(' ', paragraph)
     unique_words = set(r)  # Use a set to avoid duplicates
     for word in unique_words:
-        srch = re.findall(r'\b' + re.escape(word) + r'\b', paragraph)
+        srch = re.findall(r'\b' + re.escape(word) + r'\b', paragraph)#Used to escape special character in words
     print(f'({len(srch)},{word})')
     # print(f'({len(srch)},{r[i]})')
 most_frequent_words(paragraph)
@@ -2210,8 +2214,9 @@ import re
 from level1 import most_frequent_words
 sentence = '''%I am@ a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @empo@wering peo@ple. ;I found tea@ching mo@re interesting tha@n any other %jo@bs. %Do@es this mo@tivate yo@u to be a tea@cher!?'''
 
-refined_sentence=re.sub('%|@|$|&|!|#|;','',sentence)
+refined_sentence=re.sub('\%|\@|\$|\&|\!|\#|\;','',sentence)
+print(refined_sentence)
 # sentence.replace('%','')
-most_frequent_words(refined_sentence)
+# most_frequent_words(refined_sentence)
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
