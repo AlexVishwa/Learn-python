@@ -34,8 +34,12 @@ def cos_derivative(a, n):
 x = 1  # 57.2958 degrees
 # x = 10_000
 a = 0  # Maclaurin series
-terms = 6
+terms = 1
 approx_value = taylor_expansion(cos_derivative, a, x, terms)
 
 print(f"Taylor series approximation of cos({x}) using {terms} terms: {approx_value}")
 print(f"Actual cos({x}): {math.cos(x)}")
+# Taylor series approximation of cos(1) using 10 terms: 0.5403025793650793      
+# Actual cos(1): 0.5403023058681398
+# Taylor series approximation of cos(1) using 6 terms: 0.5416666666666666       
+# Actual cos(1): 0.5403023058681398

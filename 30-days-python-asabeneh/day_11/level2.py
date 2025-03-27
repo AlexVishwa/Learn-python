@@ -36,7 +36,7 @@ def talor_expansion(start, end, radians):
 def main(radians):
     iterations_per_cpu = TOTAL_ITERATIONS // NUMBER_OF_CPUS
     pool = mp.Pool(processes=NUMBER_OF_CPUS)
-
+    # args=[i,i+iterations_per_cpu,radians]
     results = [
         pool.apply_async(talor_expansion, args=(i, i + iterations_per_cpu, radians))
         for i in range(0, TOTAL_ITERATIONS, iterations_per_cpu)

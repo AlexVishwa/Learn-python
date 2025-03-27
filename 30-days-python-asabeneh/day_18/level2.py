@@ -1,3 +1,4 @@
+#not working properly
 import re
 def is_valid_identifier(txt):
     regex_pattern=r'[^0-9][a-zA-Z0-9][%|_]*'
