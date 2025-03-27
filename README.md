@@ -994,7 +994,7 @@ def func15(rang1):
         if i%2!=0:
             sum+=i
     return sum
-print(func15(10))
+print(func15())
 
 #Output:
 # 25
@@ -2020,9 +2020,6 @@ print(countries)
 ## File - `30-days-python-asabeneh/day_18/desc.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_18/desc.py) -->
-<<<<<<< HEAD
-![alt Regular expression chart](30-days-python-asabeneh/assets/Regularexp.png)
-=======
 <!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_18/desc.py -->
 ```py
 # syntac
@@ -2141,7 +2138,6 @@ regex_pattern = r'[^A-Za-z ]+'  # ^ in set character means negation, not A to Z,
 matches = re.findall(regex_pattern, txt)
 print(matches)  # ['6,', '2019', '8', '2021']
 ```
->>>>>>> 52000ff87d31b48eb201c1b96a26b52f0162ab0b
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_18/level1.py`
