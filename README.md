@@ -1102,11 +1102,15 @@ def cos_derivative(a, n):
 x = 1  # 57.2958 degrees
 # x = 10_000
 a = 0  # Maclaurin series
-terms = 6
+terms = 1
 approx_value = taylor_expansion(cos_derivative, a, x, terms)
 
 print(f"Taylor series approximation of cos({x}) using {terms} terms: {approx_value}")
 print(f"Actual cos({x}): {math.cos(x)}")
+# Taylor series approximation of cos(1) using 10 terms: 0.5403025793650793      
+# Actual cos(1): 0.5403023058681398
+# Taylor series approximation of cos(1) using 6 terms: 0.5416666666666666       
+# Actual cos(1): 0.5403023058681398
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
@@ -2016,9 +2020,6 @@ print(countries)
 ## File - `30-days-python-asabeneh/day_18/desc.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_18/desc.py) -->
-<<<<<<< HEAD
-![alt Regular expression chart](image.png)
-=======
 <!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_18/desc.py -->
 ```py
 # syntac
@@ -2137,7 +2138,6 @@ regex_pattern = r'[^A-Za-z ]+'  # ^ in set character means negation, not A to Z,
 matches = re.findall(regex_pattern, txt)
 print(matches)  # ['6,', '2019', '8', '2021']
 ```
->>>>>>> 785d82f5b1bce30027366c71034138b854ad6f91
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_18/level1.py`
@@ -2174,6 +2174,7 @@ print(finalmatch[len(finalmatch)-1]-finalmatch[0])
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_18/level2.py) -->
 <!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_18/level2.py -->
 ```py
+#not working properly
 import re
 def is_valid_identifier(txt):
     regex_pattern=r'[^0-9][a-zA-Z0-9][%|_]*'
