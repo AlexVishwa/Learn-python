@@ -2016,6 +2016,7 @@ print(countries)
 ## File - `30-days-python-asabeneh/day_18/desc.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_18/desc.py) -->
+![alt Regular expression chart](image.png)
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_18/level1.py`
