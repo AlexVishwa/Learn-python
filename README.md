@@ -994,7 +994,7 @@ def func15(rang1):
         if i%2!=0:
             sum+=i
     return sum
-print(func15(10))
+print(func15())
 
 #Output:
 # 25
