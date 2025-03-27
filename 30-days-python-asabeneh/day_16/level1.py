@@ -70,3 +70,5 @@ t2=date(year=2026,month=1,day=1)
 # print(t2-t1)
 t3=date(year=1970,month=1,day=1)
 print(t3-t1)
+
+# TypeError: __main__.unpacking_country_info() argument after ** must be a mapping, not list

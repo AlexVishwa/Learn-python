@@ -7,14 +7,17 @@ import xlrd
     # "x" - Create - Creates the specified file, returns an error if the file exists
     # "t" - Text - Default value. Text mode
     # "b" - Binary - Binary mode (e.g. images)
-# f = open('file1.txt')
-# txt = f.read()
-# # print(type(txt))
-# # print(txt)
+# current_dir = os.path.dirname(__file__))
+current_dir = os.path.dirname(__file__)
+file_path = os.path.join(current_dir, 'file1.txt')
+f = open(file_path)
+txt = f.read()
+print(type(txt))
+print(txt)
 # print("Hello file")
-# f.close()
-import os
-current_dir = os.path.dirname(os.path.abspath(__file__))
+f.close()
+
+current_dir = os.path.dirname(__file__)
 file_path = os.path.join(current_dir, '../day_19/file1.txt')
 with open(file_path, 'w+') as f:  # Changed mode to 'w+'
     f.write('This text will be written in a newly created file')
@@ -25,7 +28,7 @@ with open(file_path, 'w+') as f:  # Changed mode to 'w+'
     #print(f.read())
 
 import csv
-# current_dir = os.path.dirname(os.path.abspath(__file__))
+# current_dir = os.path.dirname(__file__)
 # file_path = os.path.join(current_dir, '../day_19')
 csv_file_path = os.path.join(current_dir, 'csv_examples.csv')
 with open(csv_file_path) as f:
@@ -44,7 +47,7 @@ with open(csv_file_path) as f:
 #* Excel/XLS file
 # import xlrd
 # import os
-# current_dir = os.path.dirname(os.path.abspath(__file__))
+# current_dir = os.path.dirname(__file__)
 # file_path = os.path.join(current_dir, '../assets/Book1.xls')
 # excel_book = xlrd.open_workbook(file_path)
 # print(excel_book.nsheets)

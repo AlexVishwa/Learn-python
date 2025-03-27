@@ -4,7 +4,7 @@ def most_frequent_words(paragraph):
     r = re.split(' ', paragraph)
     unique_words = set(r)  # Use a set to avoid duplicates
     for word in unique_words:
-        srch = re.findall(r'\b' + re.escape(word) + r'\b', paragraph)
+        srch = re.findall(r'\b' + re.escape(word) + r'\b', paragraph)#Used to escape special character in words
     print(f'({len(srch)},{word})')
     # print(f'({len(srch)},{r[i]})')
 most_frequent_words(paragraph)

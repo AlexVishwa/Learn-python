@@ -82,3 +82,5 @@ except ZeroDivisionError:
 # 0.5
 # 0.42857142857142855
 # 0.375
+# TypeError: __main__.unpacking_country_info() argument after ** must be a mapping, not list
+# Expecting a dictionary
