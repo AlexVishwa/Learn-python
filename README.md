@@ -2224,14 +2224,213 @@ print(refined_sentence)
 ## File - `30-days-python-asabeneh/day_19/theory.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_19/theory.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_19/theory.py -->
+```py
+import os
+import xlrd
+# File handling is used to read, write and edit files
+    # "r" - Read - Default value. Opens a file for reading, it returns an error if the file does not exist
+    # "a" - Append - Opens a file for appending, creates the file if it does not exist
+    # "w" - Write - Opens a file for writing, creates the file if it does not exist
+    # "x" - Create - Creates the specified file, returns an error if the file exists
+    # "t" - Text - Default value. Text mode
+    # "b" - Binary - Binary mode (e.g. images)
+# current_dir = os.path.dirname(__file__))
+current_dir = os.path.dirname(__file__)
+file_path = os.path.join(current_dir, 'file1.txt')
+f = open(file_path)
+txt = f.read()
+print(type(txt))
+print(txt)
+# print("Hello file")
+f.close()
+
+current_dir = os.path.dirname(__file__)
+file_path = os.path.join(current_dir, '../day_19/file1.txt')
+with open(file_path, 'w+') as f:  # Changed mode to 'w+'
+    f.write('This text will be written in a newly created file')
+    f.seek(0)  # Move the cursor to the beginning of the file
+    txt = f.readlines()
+    print(type(txt))
+    print(txt)
+    #print(f.read())
+
+import csv
+# current_dir = os.path.dirname(__file__)
+# file_path = os.path.join(current_dir, '../day_19')
+csv_file_path = os.path.join(current_dir, 'csv_examples.csv')
+with open(csv_file_path) as f:
+    csv_reader = csv.reader(f, delimiter=',') # we use the reader method to read csv
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            print(f'Column names are :{", ".join(row)}')
+            line_count += 1
+        else:
+            print(
+                f'\t{row[0]} is a teachers. He lives in {row[1]}, {row[2]}.')
+            line_count += 1
+    print(f'Number of lines:  {line_count}')
+
+#* Excel/XLS file
+# import xlrd
+# import os
+# current_dir = os.path.dirname(__file__)
+# file_path = os.path.join(current_dir, '../assets/Book1.xls')
+# excel_book = xlrd.open_workbook(file_path)
+# print(excel_book.nsheets)
+# print(excel_book.sheet_names)
+# <bound method Book.sheet_names of <xlrd.book.Book object at 0x000001A7EA23B050>>
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_19/level1.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_19/level1.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_19/level1.py -->
+```py
+import os
+import json
+from collections import Counter
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, '../assets/donald_speech.txt')
+with open(file_path,'w+') as f:
+    lines=f.readlines()
+    print(lines)
+file_path = os.path.join(current_dir, '../assets/melania_trump_speech.txt')
+with open(file_path,'r') as f:
+    line=f.readline()
+    print(line)
+
+file_path = os.path.join(current_dir, '../assets/obama_speech.txt')
+with open(file_path, 'r') as f:
+    lines = f.readlines()
+    print(f'Number of lines in speech by Obama:{len(lines)}')
+    w=0
+    for i in range(len(lines)-1):
+        w+=len(lines[i].split('\n'))
+    print(f'No. of words are:{w}')
+file_path = os.path.join(current_dir, '../assets/michelle_obama_speech.txt')
+with open(file_path,'r') as f:
+    lines=f.readlines()
+    print(f'Number of lines in Michelle Obama speech:{len(lines)}')
+    w=0
+    for i in range(len(lines)-1):
+        w+=len(lines[i].split('\n'))
+    print(f'No. of words are:{w}')
+# []
+# Number of lines in speech by 
+# Obama:66
+# Number of lines in Michelle Obama speech:83
+
+def most_spoken_languages(File,number):
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, File)
+    f=open(file_path)
+    countries_data=json.loads((f.read()))
+    list1=[unpacking_country_info(**country) for country in countries_data]
+    # print(list1[0])
+    country=0
+    list2=[language for i in list1 for language in i]
+    # for i in list1:
+    #     for language in list1:
+    #         list2=language
+    # print(list2)
+    set1 = set(list2)
+    duplicates_count = Counter(list2)
+    print(type(duplicates_count))
+    # print(len(list2))
+    # print(len(set1))
+    # #put t in a list
+def unpacking_country_info(name, capital, languages,population, flag, currency):
+    return languages
+# most_spoken_languages("../data/countries_data.json",10)
+
+def most_populated_countries(File, number):
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, File)
+    f=open(file_path)
+    countries_data=json.loads((f.read()))
+    list1 = [unpacking_country_info2(**country) for country in countries_data]
+    sorted_countries = sorted(list1, key=lambda x: x["population"], reverse=True)
+    print(sorted_countries[:number])
+def unpacking_country_info2(name, capital, languages,population, flag, currency):
+    return {"name": name, "population": population}
+most_populated_countries("../data/countries_data.json",10)
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## File - `30-days-python-asabeneh/day_19/level2.py`
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_19/level2.py) -->
+<!-- The below code snippet is automatically added from ./30-days-python-asabeneh/day_19/level2.py -->
+```py
+import os,re,csv
+import json
+from collections import Counter
+
+# def email_extraction():
+#     current_dir = os.path.dirname(__file__)
+#     file_path = os.path.join(current_dir, '../data/email_exchange_big.txt')
+#     f=open(file_path)
+#     lines=f.readlines()
+#     regex_pattern=r'[a-zA-Z0-9]\@[a-zA-Z0-9]\.[a-zA-Z]'
+#     listofemails=(email for line in lines lambda email: re.findall(regex_pattern,line))
+#     print(listofemails)
+
+def find_most_common_words(filename):
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir,filename)
+    f=open(file_path)
+    lines=f.readlines()
+
+    # r = (words for line in lines re.split(' ', lines))
+    for line in lines:
+        words=re.split(' ', line)
+    unique_words = set(words)
+    print(unique_words)
+    # for word in unique_words:
+    #     regex_pattern=r'\b'+re.escape(word)+r'\b'
+    #     for line in lines:
+    #         list2= re.findall(regex_pattern,line)
+    #         print((list2,word))
+    duplicates_count=Counter(unique_words)
+    print(duplicates_count)
+# find_most_common_words('file1.txt')
+# TypeError: expected string or bytes-like object, got 'list'
+# find_most_common_words('../assets/obama_speech.txt')
+# print('Obama Couple')
+# find_most_common_words('../assets/michelle_obama_speech.txt')
+#Not getting all the words also facing .\n issue
+def numberOfLines():
+    current_dir = os.path.dirname(__file__)
+    # //file_path = os.path.join(current_dir, '../data')
+    csv_file_path = os.path.join(current_dir, '../data/hacker_news.csv')
+    with open(csv_file_path) as f:
+        csv_reader = csv.reader(f, delimiter=',') # we use the reader method to read csv
+        line_count = 0
+        # word_count=0
+        # regex_pattern=r'python|Python'
+        # regex_pattern=r'javascript|Javascript|JavaScript'
+        regex_pattern=r'Javascript'
+        for row in csv_reader:
+            matches=[]
+            for word in row:
+                matches+=(re.findall(regex_pattern,word))
+            # *print(matches) debugger
+            if(matches!=[]):
+                print(row)
+                line_count+=1
+            else:
+                pass
+                # line_count += 1
+            # print(line_count)
+        return line_count
+        
+print(numberOfLines())
+# for Java 225
+# for Javascript 3
+# for Java and not Javascript only 2
+#Answer 222
+```
 <!-- MARKDOWN-AUTO-DOCS:END -->
