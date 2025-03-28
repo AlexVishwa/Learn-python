@@ -2220,3 +2220,18 @@ print(refined_sentence)
 # most_frequent_words(refined_sentence)
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_19/theory.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_19/theory.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_19/level1.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_19/level1.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+## File - `30-days-python-asabeneh/day_19/level2.py`
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_19/level2.py) -->
+<!-- MARKDOWN-AUTO-DOCS:END -->
