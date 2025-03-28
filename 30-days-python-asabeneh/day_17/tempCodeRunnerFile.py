@@ -1,2 +1,0 @@
-es=['Estonia']
-# rs=['Russia']
