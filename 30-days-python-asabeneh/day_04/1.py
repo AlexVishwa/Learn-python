@@ -21,7 +21,7 @@ print(company[0:6])
 
 # print(company.index('coding'))
 
-print(company.replace('Coding', 'fun'))
+print(company.replace('Coding', 'fun')) #This is used in Level20
 
 print(company.split(' '))
 
