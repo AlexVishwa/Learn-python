@@ -2492,3 +2492,15 @@ def find_most_common_words_url(url):
 #  Also on terminal we have to recursively exit terminal after making changes in imported files
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_20/theory.py) -->
+
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_20/level1.py) -->
+
+<!-- MARKDOWN-AUTO-DOCS:END -->
+
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./30-days-python-asabeneh/day_20/question4.py) -->
+
+<!-- MARKDOWN-AUTO-DOCS:END -->
