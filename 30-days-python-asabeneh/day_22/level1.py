@@ -1,0 +1,14 @@
+import scrapy
+
+
+class MySpider(scrapy.Spider):
+    name = "blinkit.com"
+    allowed_domains = ["blinkit.com"]
+    start_urls = [
+        "http://www.blinkit.com/1.html",
+        "http://www.blinkit.com/2.html",
+        "http://www.blinkit.com/3.html",
+    ]
+
+    def parse(self, response):
+        self.logger.info("A response from %s just arrived!", response.url)
